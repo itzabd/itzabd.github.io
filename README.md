@@ -1,100 +1,46 @@
-# Abdullah Hossien - Portfolio
+# Abdullah Hossien - Premium Portfolio
 
-A modern, responsive portfolio website showcasing my skills, projects, and experience as a Computer Science student and software enthusiast.
+A premium, modern portfolio built with Next.js 15, React, Tailwind CSS, and Framer Motion. Designed with a sleek glassmorphic dark theme inspired by top tech companies.
 
 ## 🌟 Features
+- **Next.js 15 App Router** - High performance and SEO optimization
+- **Tailwind CSS v4** - Cutting-edge styling with glassmorphism and custom gradients
+- **Framer Motion** - Smooth scroll animations, interactive hovers, and page transitions
+- **Responsive** - Perfectly scaled across desktop, tablet, and mobile
+- **Dynamic Canvas Background** - Floating Aurora blobs and interactive particle field
+- **GitHub Integration** - Live stats, streak, and language charts
 
-- **Responsive Design** - Works seamlessly on desktop, tablet, and mobile devices
-- **Modern UI** - Clean and professional design with smooth animations
-- **Navigation Bar** - Sticky navigation for easy access to all sections
-- **Project Showcase** - Beautifully displayed project cards with descriptions
-- **Skills Display** - Gradient-styled skill tags for visual appeal
-- **Contact Integration** - Easy-to-use contact buttons for email, GitHub, and LinkedIn
-- **SEO Optimized** - Meta tags and semantic HTML for better search engine visibility
-- **Accessibility** - Proper heading hierarchy and semantic elements
-
-## 📁 Project Structure
-
-```
-itzabd.github.io/
-├── index.html          # Main HTML file
-├── ColorStyle.css      # Modern styling with CSS variables
-└── README.md          # This file
-```
+## 🛠 Tech Stack
+- **Framework:** Next.js 15 (React)
+- **Styling:** Tailwind CSS, CSS Variables
+- **Animations:** Framer Motion
+- **Icons:** Lucide React & Custom SVGs
+- **Deployment:** GitHub Pages Ready
 
 ## 🚀 Getting Started
 
-1. **Clone the Repository**
+1. **Install Dependencies**
    ```bash
-   git clone https://github.com/itzabd/itzabd.github.io.git
-   cd itzabd.github.io
+   npm install
    ```
 
-2. **Open in Browser**
-   - Simply open `index.html` in your web browser
-   - Or visit [itzabd.github.io](https://itzabd.github.io)
+2. **Run Development Server**
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:3000](http://localhost:3000) to view the portfolio.
 
-## 🎨 Customization Guide
+## 🎨 Customization
+- **Content:** Update `src/lib/data.ts` to change your bio, skills, projects, and timeline data.
+- **Styling:** Update colors in `src/app/globals.css` and `tailwind.config.ts`.
+- **Icons:** Add or modify custom SVG icons in `src/components/icons.tsx` or use `lucide-react`.
 
-### Change Colors
-Edit the CSS variables in `ColorStyle.css`:
-```css
-:root {
-    --primary-color: #c24a24;      /* Main accent color */
-    --secondary-color: #0073e6;    /* Secondary accent */
-    --text-color: #333;            /* Text color */
-    --light-bg: #f4f4f4;          /* Background */
-}
+## 📦 Building for Production
+To build a static HTML export:
+```bash
+npm run build
 ```
+The output will be in the `out/` directory.
 
-### Update Personal Information
-Edit sections in `index.html`:
-- **Hero Section**: Update name and tagline
-- **About Section**: Add your bio
-- **Education**: Update your school and degree info
-- **Experience**: Add your work experience
-- **Projects**: Add your project details and links
-- **Skills**: Update your skill tags
-
-### Add New Sections
-1. Add a new `<section class="section" id="section-name">` in `index.html`
-2. Add a link in the navbar
-3. Style as needed using existing CSS classes
-
-## 📱 Responsive Breakpoints
-
-- **Desktop**: Full width layout
-- **Tablet** (≤768px): Adjusted container width and flex layouts
-- **Mobile** (≤480px): Single column layout with optimized spacing
-
-## 🔗 Contact Information
-
-- **Email**: abdullahhossien0@gmail.com
-- **GitHub**: [github.com/itzabd](https://github.com/itzabd)
-- **LinkedIn**: [linkedin.com/in/abdullah-hossien-12349b225/](https://www.linkedin.com/in/abdullah-hossien-12349b225/)
-
-## 💡 Technologies Used
-
-- **HTML5** - Semantic markup
-- **CSS3** - Modern styling with flexbox and grid
-- **JavaScript** - Ready for future enhancements
-- **Git/GitHub** - Version control and hosting
-
-## 📝 License
-
-This project is open source and available under the MIT License.
-
-## 🎯 Future Enhancements
-
-- [ ] Add dark mode toggle
-- [ ] Implement smooth scroll animations
-- [ ] Add blog section
-- [ ] Integrate contact form
-- [ ] Add project filtering
-- [ ] Include testimonials section
-
----
-
-**Last Updated**: April 2026
-
-For more information or to report issues, please visit the [GitHub repository](https://github.com/itzabd/itzabd.github.io).
+## 📄 License
+This project is open-source and available under the MIT License.
