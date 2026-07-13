@@ -16,8 +16,8 @@ const stagger = {
 
 export default function AboutSection() {
   return (
-    <section id="about" className="section-padding relative z-10">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="about" className="section-padding relative z-10 w-full">
+      <div className="max-w-7xl mx-auto px-6 w-full">
         {/* Section header */}
         <motion.div
           initial="hidden"
@@ -117,12 +117,12 @@ export default function AboutSection() {
               Education
             </h3>
             {education.map((edu, i) => (
-              <div key={i} className="relative pl-8">
+              <div key={i} className="relative pl-12 mb-8">
                 <div className="timeline-line" />
                 <div className="absolute left-0 top-1 w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center shadow-lg shadow-blue-500/30">
                   <GraduationCap size={16} className="text-white" />
                 </div>
-                <div className="glass p-5 rounded-xl ml-4">
+                <div className="glass p-5 rounded-xl ml-2">
                   <div className="flex items-center gap-2 mb-2 flex-wrap">
                     <span className="inline-flex items-center gap-1 text-xs bg-blue-500/15 text-blue-300 border border-blue-500/25 rounded-full px-2.5 py-0.5">
                       <span className="w-1.5 h-1.5 rounded-full bg-green-400" />
@@ -150,12 +150,12 @@ export default function AboutSection() {
               Experience
             </h3>
             {experience.map((exp, i) => (
-              <div key={i} className="relative pl-8">
+              <div key={i} className="relative pl-12 mb-8">
                 <div className="timeline-line" />
                 <div className="absolute left-0 top-1 w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center shadow-lg shadow-purple-500/30">
                   <Briefcase size={16} className="text-white" />
                 </div>
-                <div className="glass p-5 rounded-xl ml-4">
+                <div className="glass p-5 rounded-xl ml-2">
                   <div className="flex items-center gap-2 mb-2 flex-wrap">
                     <span className="inline-flex items-center gap-1 text-xs bg-purple-500/15 text-purple-300 border border-purple-500/25 rounded-full px-2.5 py-0.5">
                       {exp.type}

@@ -15,8 +15,8 @@ const fadeInUp = {
 
 export default function ResearchSection() {
   return (
-    <section id="research" className="section-padding relative z-10">
-      <div className="max-w-5xl mx-auto px-6">
+    <section id="research" className="section-padding relative z-10 w-full">
+      <div className="max-w-7xl mx-auto px-6 w-full">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -41,7 +41,7 @@ export default function ResearchSection() {
         <div className="relative">
           {/* Vertical line */}
           <div
-            className="absolute left-5 md:left-1/2 top-0 bottom-0 w-px"
+            className="absolute left-5 md:left-1/2 top-0 bottom-0 w-px z-0"
             style={{
               background: "linear-gradient(to bottom, rgba(37,99,235,0.5), rgba(139,92,246,0.3), rgba(6,182,212,0.1), transparent)",
               transform: "translateX(-50%)",
@@ -69,10 +69,10 @@ export default function ResearchSection() {
                   }}
                   className={`relative flex items-start gap-8 ${
                     isLeft ? "md:flex-row" : "md:flex-row-reverse"
-                  } flex-row`}
+                  }`}
                 >
                   {/* Timeline dot */}
-                  <div className="absolute left-5 md:left-1/2 -translate-x-1/2 z-10 flex-shrink-0">
+                  <div className="absolute left-5 md:left-1/2 -translate-x-1/2 z-20 flex-shrink-0">
                     <div
                       className={`w-10 h-10 rounded-full flex items-center justify-center border-2 border-[#030712]`}
                       style={{

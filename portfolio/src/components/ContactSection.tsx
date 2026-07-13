@@ -63,8 +63,8 @@ export default function ContactSection() {
   ];
 
   return (
-    <section id="contact" className="section-padding relative z-10">
-      <div className="max-w-5xl mx-auto px-6">
+    <section id="contact" className="section-padding relative z-10 w-full">
+      <div className="max-w-7xl mx-auto px-6 w-full">
         <motion.div
           initial="hidden"
           whileInView="visible"

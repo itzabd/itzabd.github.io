@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import {
   FolderGit2, Layers, GraduationCap, Trophy, Sparkles,
 } from "lucide-react";
 import { GithubIcon } from "@/components/icons";
@@ -31,8 +32,8 @@ function AnimatedStat({ value, delay }: { value: string; delay: number }) {
 
 export default function AchievementsSection() {
   return (
-    <section id="achievements" className="section-padding relative z-10">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="achievements" className="section-padding relative z-10 w-full">
+      <div className="max-w-7xl mx-auto px-6 w-full">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}

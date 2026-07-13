@@ -58,8 +58,8 @@ const languageStats = [
 
 export default function GitHubSection() {
   return (
-    <section id="github" className="section-padding relative z-10">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="github" className="section-padding relative z-10 w-full">
+      <div className="max-w-7xl mx-auto px-6 w-full">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -123,7 +123,7 @@ export default function GitHubSection() {
             </h3>
             <div className="space-y-4">
               <img
-                src={`https://github-readme-stats.vercel.app/api?username=${GITHUB_USERNAME}&show_icons=true&theme=tokyonight&bg_color=00000000&hide_border=true&text_color=94a3b8&title_color=60a5fa&icon_color=8b5cf6&count_private=true`}
+                src={`https://github-readme-stats.vercel.app/api?username=${GITHUB_USERNAME}&show_icons=true&theme=tokyonight&bg_color=00000000&hide_border=true&title_color=60a5fa&icon_color=8b5cf6`}
                 alt="GitHub Stats"
                 className="w-full rounded-xl"
                 loading="lazy"
