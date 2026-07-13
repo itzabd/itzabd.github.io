@@ -36,11 +36,13 @@ export default function AboutSection() {
           className="glass p-6 rounded-2xl flex justify-center items-center relative overflow-hidden group"
         >
           <div className="card-accent-bar" />
-          <div className="relative w-64 h-64 rounded-2xl bg-gradient-to-br from-violet-500/20 to-cyan-500/20 flex items-center justify-center border border-white/10 group-hover:scale-102 transition-transform duration-500">
-            <span className="text-6xl font-black gradient-text tracking-tighter" style={{ fontFamily: "'Outfit', 'Inter', sans-serif" }}>
-              AM
-            </span>
-            <div className="absolute inset-0 bg-radial-gradient from-transparent to-black/20 pointer-events-none" />
+          <div className="relative w-64 h-64 rounded-2xl bg-gradient-to-br from-violet-500/20 to-cyan-500/20 flex items-center justify-center border border-white/10 group-hover:scale-102 transition-transform duration-500 overflow-hidden">
+            <img 
+              src="/profile.jpg" 
+              alt="Abdullah Hossien" 
+              className="w-full h-full object-cover relative z-10"
+            />
+            <div className="absolute inset-0 bg-radial-gradient from-transparent to-black/20 pointer-events-none z-20" />
           </div>
         </motion.div>
 

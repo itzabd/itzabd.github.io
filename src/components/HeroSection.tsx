@@ -96,15 +96,14 @@ export default function HeroSection() {
               }}
             />
             <div
-              className="relative w-32 h-32 rounded-full glass flex items-center justify-center"
+              className="relative w-32 h-32 rounded-full glass flex items-center justify-center overflow-hidden"
               style={{ borderColor: "rgba(124,58,237,0.3)", borderWidth: "2px" }}
             >
-              <span
-                className="text-4xl font-black gradient-text"
-                style={{ fontFamily: "'Outfit', 'Inter', sans-serif" }}
-              >
-                AH
-              </span>
+              <img 
+                src="/profile.jpg" 
+                alt="Abdullah Hossien" 
+                className="w-full h-full object-cover"
+              />
             </div>
           </motion.div>
         </motion.div>
