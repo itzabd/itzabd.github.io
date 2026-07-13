@@ -5,13 +5,13 @@ import { motion, useInView } from "framer-motion";
 import { Code2, Brain, Layout, Server, Database, Wrench } from "lucide-react";
 import { skills } from "@/lib/data";
 
-const iconMap: Record<string, React.FC<{ size?: number; className?: string }>> = {
+const iconMap: Record<string, React.FC<{ size?: number; className?: string; style?: React.CSSProperties }>> = {
   Code2, Brain, Layout, Server, Database, Wrench,
 };
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] as const } },
 };
 
 function ProficiencyBar({ level, color }: { level: number; color: string }) {
@@ -71,7 +71,7 @@ export default function SkillsSection() {
                     y: 0,
                     transition: {
                       duration: 0.6,
-                      ease: [0.25, 0.46, 0.45, 0.94],
+                      ease: [0.25, 0.46, 0.45, 0.94] as const,
                       delay: si * 0.08,
                     },
                   },
