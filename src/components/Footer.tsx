@@ -6,8 +6,8 @@ import { personalInfo } from "@/lib/data";
 
 export default function Footer() {
   return (
-    <footer className="glass mt-20 py-8 px-4 border-t border-white/5" style={{ borderRadius: 0, borderBottom: "none", borderLeft: "none", borderRight: "none" }}>
-      <div className="max-w-6xl mx-auto flex flex-wrap justify-between items-center gap-4">
+    <footer className="w-full mt-20 py-8 px-4 border-t border-white/10 bg-white/5 backdrop-blur-md">
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
         {/* Left: Copyright */}
         <p className="text-sm text-gray-400">
           © {new Date().getFullYear()} Abdullah Hossien. All rights reserved.
