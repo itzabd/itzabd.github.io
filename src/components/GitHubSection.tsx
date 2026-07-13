@@ -20,31 +20,31 @@ const stagger = {
 const stats = [
   {
     label: "Repositories",
-    value: "13+",
+    value: "16+",
     icon: GitBranch,
-    color: "text-blue-400",
-    bg: "bg-blue-500/10 border-blue-500/25",
+    color: "text-accent",
+    bg: "bg-background-alt border-border",
   },
   {
     label: "Projects",
     value: "15+",
     icon: Star,
-    color: "text-purple-400",
-    bg: "bg-purple-500/10 border-purple-500/25",
+    color: "text-accent",
+    bg: "bg-background-alt border-border",
   },
   {
     label: "Followers",
-    value: "1",
+    value: "Active",
     icon: GithubIcon,
-    color: "text-cyan-400",
-    bg: "bg-cyan-500/10 border-cyan-500/25",
+    color: "text-accent",
+    bg: "bg-background-alt border-border",
   },
   {
-    label: "Streak",
-    value: "Active",
+    label: "Status",
+    value: "Open",
     icon: Activity,
-    color: "text-green-400",
-    bg: "bg-green-500/10 border-green-500/25",
+    color: "text-accent",
+    bg: "bg-background-alt border-border",
   },
 ];
 
@@ -69,13 +69,13 @@ export default function GitHubSection() {
         >
           <span className="tag-pill mb-4 inline-block">GitHub</span>
           <h2
-            className="text-4xl md:text-5xl font-black tracking-tight mb-4"
-            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+            className="text-4xl md:text-5xl font-black tracking-tight mb-4 text-text-primary"
+            style={{ fontFamily: "'Geist', 'Inter', sans-serif" }}
           >
             Open Source{" "}
-            <span className="gradient-text">Activity</span>
+            <span className="text-accent">Activity</span>
           </h2>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+          <p className="text-text-secondary text-lg max-w-2xl mx-auto">
             Consistent contributor with a diverse portfolio across multiple languages and domains.
           </p>
         </motion.div>
@@ -93,16 +93,16 @@ export default function GitHubSection() {
               <div
                 className={`glass p-5 flex flex-col items-center text-center rounded-2xl border ${stat.bg}`}
               >
-                <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-3 ${stat.bg}`}>
+                <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-3 border border-border bg-background`}>
                   <stat.icon size={18} className={stat.color} />
                 </div>
                 <span
                   className={`text-2xl font-black ${stat.color}`}
-                  style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                  style={{ fontFamily: "'Geist', 'Inter', sans-serif" }}
                 >
                   {stat.value}
                 </span>
-                <span className="text-slate-500 text-xs mt-1">{stat.label}</span>
+                <span className="text-text-muted text-xs mt-1">{stat.label}</span>
               </div>
             </motion.div>
           ))}
@@ -115,21 +115,21 @@ export default function GitHubSection() {
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
             variants={fadeInUp}
-            className="gradient-border p-6 rounded-2xl"
+            className="glass p-6 rounded-2xl"
           >
-            <h3 className="font-bold text-white mb-5 flex items-center gap-2">
-              <GithubIcon size={18} className="text-blue-400" />
+            <h3 className="font-bold text-text-primary mb-5 flex items-center gap-2">
+              <GithubIcon size={18} className="text-accent" />
               GitHub Stats
             </h3>
             <div className="space-y-4">
               <img
-                src={`https://github-readme-stats.vercel.app/api?username=${GITHUB_USERNAME}&show_icons=true&theme=tokyonight&bg_color=00000000&hide_border=true&title_color=60a5fa&icon_color=8b5cf6`}
+                src={`https://github-readme-stats.vercel.app/api?username=${GITHUB_USERNAME}&show_icons=true&theme=default&bg_color=FBFBFD00&hide_border=true&title_color=4F46E5&icon_color=4F46E5&text_color=334155`}
                 alt="GitHub Stats"
                 className="w-full rounded-xl"
                 loading="lazy"
               />
               <img
-                src={`https://github-readme-streak-stats.herokuapp.com/?user=${GITHUB_USERNAME}&theme=tokyonight&background=00000000&border=ffffff15&ring=2563EB&fire=8B5CF6&currStreakLabel=60a5fa&sideLabels=94a3b8&dates=64748b&stroke=ffffff10`}
+                src={`https://github-readme-streak-stats.herokuapp.com/?user=${GITHUB_USERNAME}&theme=default&background=FBFBFD00&border=0F172A0F&ring=4F46E5&fire=4338CA&currStreakLabel=4F46E5&sideLabels=334155&dates=64748b&stroke=0F172A0F`}
                 alt="GitHub Streak"
                 className="w-full rounded-xl"
                 loading="lazy"
@@ -143,10 +143,10 @@ export default function GitHubSection() {
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
             variants={fadeInUp}
-            className="gradient-border p-6 rounded-2xl flex flex-col"
+            className="glass p-6 rounded-2xl flex flex-col"
           >
-            <h3 className="font-bold text-white mb-5 flex items-center gap-2">
-              <Activity size={18} className="text-purple-400" />
+            <h3 className="font-bold text-text-primary mb-5 flex items-center gap-2">
+              <Activity size={18} className="text-accent" />
               Language Distribution
             </h3>
 
@@ -173,9 +173,9 @@ export default function GitHubSection() {
                       className="w-2.5 h-2.5 rounded-full"
                       style={{ background: lang.color }}
                     />
-                    <span className="text-sm text-slate-300">{lang.name}</span>
+                    <span className="text-sm text-text-secondary">{lang.name}</span>
                   </div>
-                  <span className="text-sm text-slate-500 font-medium">{lang.percent}%</span>
+                  <span className="text-sm text-text-muted font-medium">{lang.percent}%</span>
                 </div>
               ))}
             </div>
@@ -183,7 +183,7 @@ export default function GitHubSection() {
             {/* Top Languages Image */}
             <div className="mt-6">
               <img
-                src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${GITHUB_USERNAME}&layout=compact&theme=tokyonight&bg_color=00000000&hide_border=true&text_color=94a3b8&title_color=60a5fa`}
+                src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${GITHUB_USERNAME}&layout=compact&theme=default&bg_color=FBFBFD00&hide_border=true&text_color=334155&title_color=4F46E5`}
                 alt="Top Languages"
                 className="w-full rounded-xl"
                 loading="lazy"
@@ -198,10 +198,10 @@ export default function GitHubSection() {
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
           variants={fadeInUp}
-          className="mt-8 gradient-border p-6 rounded-2xl"
+          className="mt-8 glass p-6 rounded-2xl"
         >
-          <h3 className="font-bold text-white mb-5 flex items-center gap-2">
-            <Activity size={18} className="text-cyan-400" />
+          <h3 className="font-bold text-text-primary mb-5 flex items-center gap-2">
+            <Activity size={18} className="text-accent" />
             Contribution Activity
           </h3>
           <img
@@ -215,7 +215,7 @@ export default function GitHubSection() {
               href={personalInfo.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-400 hover:text-blue-300 text-sm transition-colors animated-underline"
+              className="text-accent hover:text-accent-hover text-sm transition-colors font-medium"
             >
               View full profile on GitHub →
             </a>

@@ -23,7 +23,7 @@ function AnimatedStat({ value, delay }: { value: string; delay: number }) {
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.7, delay }}
       className="text-4xl md:text-5xl font-black gradient-text block"
-      style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+      style={{ fontFamily: "'Geist', 'Inter', sans-serif" }}
     >
       {value}
     </motion.span>
@@ -43,13 +43,13 @@ export default function AchievementsSection() {
         >
           <span className="tag-pill mb-4 inline-block">Achievements</span>
           <h2
-            className="text-4xl md:text-5xl font-black tracking-tight mb-4"
-            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+            className="text-4xl md:text-5xl font-black tracking-tight mb-4 text-text-primary"
+            style={{ fontFamily: "'Geist', 'Inter', sans-serif" }}
           >
             By The{" "}
-            <span className="gradient-text">Numbers</span>
+            <span className="text-accent">Numbers</span>
           </h2>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+          <p className="text-text-secondary text-lg max-w-2xl mx-auto">
             Milestones that reflect my dedication to engineering excellence.
           </p>
         </motion.div>
@@ -66,16 +66,16 @@ export default function AchievementsSection() {
                 transition={{ duration: 0.6, delay: i * 0.08 }}
               >
                 <motion.div
-                  className="gradient-border p-7 text-center group h-full"
-                  whileHover={{ y: -6, transition: { duration: 0.3 } }}
+                  className="glass p-7 text-center group h-full"
+                  whileHover={{ y: -6, transition: { duration: 0.2 } }}
                 >
                   <div className="flex justify-center mb-4">
-                    <div className="w-12 h-12 rounded-xl bg-white/[0.04] border border-white/[0.07] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <Icon size={22} className={ach.color} />
+                    <div className="w-12 h-12 rounded-xl bg-background-alt border border-border flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <Icon size={22} className="text-accent" />
                     </div>
                   </div>
                   <AnimatedStat value={ach.value} delay={i * 0.1 + 0.3} />
-                  <p className="text-slate-400 text-sm mt-2 font-medium">{ach.label}</p>
+                  <p className="text-text-secondary text-sm mt-2 font-medium">{ach.label}</p>
                 </motion.div>
               </motion.div>
             );
