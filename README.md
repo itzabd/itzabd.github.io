@@ -1,46 +1,68 @@
-# Abdullah Hossien - Premium Portfolio
+# Abdullah Hossien — AI/ML Engineer Portfolio
 
-A premium, modern portfolio built with Next.js 15, React, Tailwind CSS, and Framer Motion. Designed with a sleek glassmorphic dark theme inspired by top tech companies.
+[![Next.js](https://img.shields.io/badge/Next.js-15.0-black?style=flat-square&logo=next.js)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-v4.0-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 
-## 🌟 Features
-- **Next.js 15 App Router** - High performance and SEO optimization
-- **Tailwind CSS v4** - Cutting-edge styling with glassmorphism and custom gradients
-- **Framer Motion** - Smooth scroll animations, interactive hovers, and page transitions
-- **Responsive** - Perfectly scaled across desktop, tablet, and mobile
-- **Dynamic Canvas Background** - Floating Aurora blobs and interactive particle field
-- **GitHub Integration** - Live stats, streak, and language charts
+Personal portfolio and research repository for Abdullah Hossien, AI/ML Engineer and Neurotechnology Researcher. This repository contains the source code for the statically exported web application deployed at [itzabd.github.io](https://itzabd.github.io).
 
-## 🛠 Tech Stack
-- **Framework:** Next.js 15 (React)
-- **Styling:** Tailwind CSS, CSS Variables
-- **Animations:** Framer Motion
-- **Icons:** Lucide React & Custom SVGs
-- **Deployment:** GitHub Pages Ready
+## Overview
 
-## 🚀 Getting Started
+The application is engineered as a statically generated Next.js Single Page Application (SPA), emphasizing performance, accessibility, and a modern design system. It serves as a central hub for academic publications, professional experience, and full-stack machine learning projects.
 
-1. **Install Dependencies**
-   ```bash
-   npm install
-   ```
+### System Architecture
 
-2. **Run Development Server**
-   ```bash
-   npm run dev
-   ```
-   Open [http://localhost:3000](http://localhost:3000) to view the portfolio.
+- **Framework:** Next.js 15 (React 19) utilizing the App Router.
+- **Styling Engine:** Tailwind CSS v4 running via PostCSS, extended with vanilla CSS variables for a custom glassmorphism design system.
+- **Animation:** Framer Motion for hardware-accelerated viewport transitions and interactive states.
+- **API Integration:** 
+  - Serverless contact form submission via Web3Forms.
+  - Asynchronous data fetching for live GitHub repository statistics.
+- **Build Strategy:** Configured for strict static HTML export (`output: "export"`) to ensure compatibility with GitHub Pages infrastructure.
 
-## 🎨 Customization
-- **Content:** Update `src/lib/data.ts` to change your bio, skills, projects, and timeline data.
-- **Styling:** Update colors in `src/app/globals.css` and `tailwind.config.ts`.
-- **Icons:** Add or modify custom SVG icons in `src/components/icons.tsx` or use `lucide-react`.
+## Local Development Environment
 
-## 📦 Building for Production
-To build a static HTML export:
+Ensure you have Node.js (v18.17+) installed before proceeding.
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/itzabd/itzabd.github.io.git
+cd itzabd.github.io
+
+# 2. Install dependencies
+npm install
+
+# 3. Initialize the development server
+npm run dev
+```
+
+The application will be available at `http://localhost:3000`.
+
+## Repository Structure
+
+```text
+.
+├── public/                 # Static assets and vectors
+├── src/
+│   ├── app/                # Application routing and global stylesheets
+│   ├── components/         # Modular React components
+│   └── lib/                # Static data models and shared utilities
+├── next.config.mjs         # Static export configuration
+└── postcss.config.mjs      # Tailwind v4 processing pipeline
+```
+
+## Deployment Protocol
+
+This repository is configured for automated deployment to GitHub Pages. The production build generates a static `out/` directory containing optimized HTML, CSS, and JavaScript assets.
+
+To generate a local production build for verification:
+
 ```bash
 npm run build
 ```
-The output will be in the `out/` directory.
 
-## 📄 License
-This project is open-source and available under the MIT License.
+## License
+
+This source code is distributed under the [MIT License](LICENSE). 
+Content, research data, and personal information remain the property of the author.
