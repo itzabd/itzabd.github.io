@@ -24,53 +24,26 @@ export default function ContactSection() {
     setErrorMessage("");
 
     try {
-      let response: Response | null = null;
-      let useFallback = false;
-
-      // Try local API first
-      try {
-        const localRes = await fetch("/api/contact", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(form),
-        });
-        if (localRes.status === 404) {
-          useFallback = true;
-        } else {
-          response = localRes;
-        }
-      } catch (err) {
-        useFallback = true;
-      }
-
-      // Fallback directly to Web3Forms client-side endpoint (essential for static HTML export)
-      if (useFallback) {
-        const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "d8bd17b4-3a9d-4786-9051-419b4e1f76cf";
-        response = await fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            access_key: accessKey,
-            name: form.name,
-            email: form.email,
-            message: form.message,
-            subject: `Portfolio Contact: ${form.name}`,
-          }),
-        });
-      }
-
-      if (!response) {
-        throw new Error("Failed to initialize communication.");
-      }
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          access_key: "dc243075-627a-445c-9ee0-cc2b76bf9de9",
+          name: form.name,
+          email: form.email,
+          message: form.message,
+          subject: `Portfolio Contact: ${form.name}`,
+        }),
+      });
 
       const data = await response.json();
 
-      if (response.ok && (data.success || data.id)) {
+      if (response.ok && data.success) {
         setFormState("success");
         setForm({ name: "", email: "", message: "" });
         setTimeout(() => setFormState("idle"), 4000);
       } else {
-        throw new Error(data.error || data.message || "Failed to send message.");
+        throw new Error(data.message || "Failed to send message.");
       }
     } catch (error) {
       setFormState("error");
