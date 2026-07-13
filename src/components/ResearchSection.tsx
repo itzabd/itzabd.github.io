@@ -26,13 +26,13 @@ export default function ResearchSection() {
         >
           <span className="tag-pill mb-4 inline-block">Research</span>
           <h2
-            className="text-4xl md:text-5xl font-black tracking-tight mb-4"
-            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+            className="text-4xl md:text-5xl font-black tracking-tight mb-4 text-text-primary"
+            style={{ fontFamily: "'Geist', 'Inter', sans-serif" }}
           >
             Research &{" "}
-            <span className="gradient-text">Innovation</span>
+            <span className="text-accent">Innovation</span>
           </h2>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+          <p className="text-text-secondary text-lg max-w-2xl mx-auto">
             Pushing boundaries at the frontier of AI, neurotechnology, and healthcare systems.
           </p>
         </motion.div>
@@ -43,7 +43,7 @@ export default function ResearchSection() {
           <div
             className="absolute left-5 md:left-1/2 top-0 bottom-0 w-px z-0"
             style={{
-              background: "linear-gradient(to bottom, rgba(37,99,235,0.5), rgba(139,92,246,0.3), rgba(6,182,212,0.1), transparent)",
+              background: "linear-gradient(to bottom, var(--accent), var(--border), transparent)",
               transform: "translateX(-50%)",
             }}
           />
@@ -74,11 +74,7 @@ export default function ResearchSection() {
                   {/* Timeline dot */}
                   <div className="absolute left-5 md:left-1/2 -translate-x-1/2 z-20 flex-shrink-0">
                     <div
-                      className={`w-10 h-10 rounded-full flex items-center justify-center border-2 border-[#030712]`}
-                      style={{
-                        background: "linear-gradient(135deg, #2563EB, #8B5CF6)",
-                        boxShadow: "0 0 20px rgba(37,99,235,0.5)",
-                      }}
+                      className="w-10 h-10 rounded-full flex items-center justify-center bg-accent shadow-cardHover border-2 border-white"
                     >
                       <Icon size={16} className="text-white" />
                     </div>
@@ -90,22 +86,22 @@ export default function ResearchSection() {
                   {/* Card */}
                   <div className={`ml-14 md:ml-0 md:w-1/2 ${isLeft ? "md:pr-12" : "md:pl-12"}`}>
                     <motion.div
-                      className="gradient-border p-6 rounded-2xl group"
-                      whileHover={{ y: -4, transition: { duration: 0.3 } }}
+                      className="glass p-6 rounded-2xl group"
+                      whileHover={{ y: -4, transition: { duration: 0.2 } }}
                     >
                       {/* Year */}
                       <div className="flex items-center gap-2 mb-3">
-                        <Calendar size={13} className="text-slate-500" />
-                        <span className="text-xs text-slate-500 font-medium">{area.year}</span>
+                        <Calendar size={13} className="text-text-muted" />
+                        <span className="text-xs text-text-muted font-medium">{area.year}</span>
                       </div>
 
                       <h3
-                        className="font-bold text-lg text-white mb-2 group-hover:gradient-text transition-all"
-                        style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                        className="font-bold text-lg text-text-primary mb-2 group-hover:text-accent transition-colors"
+                        style={{ fontFamily: "'Geist', 'Inter', sans-serif" }}
                       >
                         {area.title}
                       </h3>
-                      <p className="text-slate-400 text-sm leading-relaxed mb-4">
+                      <p className="text-text-secondary text-sm leading-relaxed mb-4">
                         {area.description}
                       </p>
 

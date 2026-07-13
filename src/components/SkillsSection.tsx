@@ -14,22 +14,7 @@ const fadeInUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] as const } },
 };
 
-function ProficiencyBar({ level, color }: { level: number; color: string }) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-50px" });
-
-  return (
-    <div ref={ref} className="proficiency-bar">
-      <motion.div
-        className="proficiency-fill"
-        style={{ backgroundImage: `linear-gradient(90deg, #2563EB, #8B5CF6, #06B6D4)` }}
-        initial={{ width: 0 }}
-        animate={inView ? { width: `${level}%` } : { width: 0 }}
-        transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
-      />
-    </div>
-  );
-}
+// Progress bars removed in favor of clean chips
 
 export default function SkillsSection() {
   return (
@@ -44,13 +29,13 @@ export default function SkillsSection() {
         >
           <span className="tag-pill mb-4 inline-block">Skills & Expertise</span>
           <h2
-            className="text-4xl md:text-5xl font-black tracking-tight mb-4"
-            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+            className="text-4xl md:text-5xl font-black tracking-tight mb-4 text-text-primary"
+            style={{ fontFamily: "'Geist', 'Inter', sans-serif" }}
           >
             Technical{" "}
-            <span className="gradient-text">Arsenal</span>
+            <span className="text-accent">Arsenal</span>
           </h2>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+          <p className="text-text-secondary text-lg max-w-2xl mx-auto">
             A versatile toolkit spanning AI/ML, full-stack development, and system design.
           </p>
         </motion.div>
@@ -78,36 +63,26 @@ export default function SkillsSection() {
                 }}
               >
                 <motion.div
-                  className="gradient-border p-6 h-full group cursor-default"
-                  whileHover={{ y: -6, transition: { duration: 0.3 } }}
+                  className="glass p-6 h-full flex flex-col"
+                  whileHover={{ y: -4, transition: { duration: 0.2 } }}
                 >
                   {/* Header */}
                   <div className="flex items-center gap-3 mb-6">
-                    <div
-                      className={`w-10 h-10 rounded-xl bg-gradient-to-br ${skill.color} bg-opacity-15 flex items-center justify-center`}
-                      style={{
-                        background: `linear-gradient(135deg, rgba(37,99,235,0.15), rgba(139,92,246,0.15))`,
-                      }}
-                    >
-                      <Icon
-                        size={18}
-                        className={`bg-gradient-to-r ${skill.color} bg-clip-text`}
-                        style={{ color: "#60a5fa" }}
-                      />
+                    <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center">
+                      <Icon size={18} className="text-accent" />
                     </div>
-                    <h3 className="font-bold text-white">{skill.category}</h3>
+                    <h3 className="font-bold text-text-primary">{skill.category}</h3>
                   </div>
 
-                  {/* Skills list */}
-                  <div className="space-y-4">
+                  {/* Skills list (Chips) */}
+                  <div className="flex flex-wrap gap-2 mt-auto">
                     {skill.items.map((item) => (
-                      <div key={item.name}>
-                        <div className="flex items-center justify-between mb-1.5">
-                          <span className="text-sm text-slate-300 font-medium">{item.name}</span>
-                          <span className="text-xs text-slate-500">{item.level}%</span>
-                        </div>
-                        <ProficiencyBar level={item.level} color={skill.color} />
-                      </div>
+                      <span
+                        key={item.name}
+                        className="px-3 py-1.5 bg-background border border-border rounded-lg text-sm font-medium text-text-secondary shadow-sm"
+                      >
+                        {item.name}
+                      </span>
                     ))}
                   </div>
                 </motion.div>

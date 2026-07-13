@@ -10,14 +10,22 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#030712",
-        primary: "#2563EB",
-        secondary: "#8B5CF6",
-        accent: "#06B6D4",
+        background: "var(--bg)",
+        "background-alt": "var(--bg-alt)",
+        "text-primary": "var(--text-primary)",
+        "text-secondary": "var(--text-secondary)",
+        "text-muted": "var(--text-muted)",
+        accent: "var(--accent)",
+        "accent-hover": "var(--accent-hover)",
+        border: "var(--border)",
+      },
+      boxShadow: {
+        card: "var(--shadow-sm)",
+        cardHover: "var(--shadow-md)",
       },
       fontFamily: {
-        sans: ["Inter", "Space Grotesk", "system-ui", "sans-serif"],
-        display: ["Space Grotesk", "Inter", "sans-serif"],
+        sans: ["Inter", "Geist", "system-ui", "sans-serif"],
+        display: ["Inter", "Geist", "sans-serif"],
       },
       animation: {
         "spin-slow": "spin 8s linear infinite",

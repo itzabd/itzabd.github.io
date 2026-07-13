@@ -46,7 +46,7 @@ export default function Navbar() {
         <div
           className={`transition-all duration-500 ${
             scrolled
-              ? "bg-[#030712]/80 backdrop-blur-xl border-b border-white/[0.06] shadow-2xl"
+              ? "bg-white/70 backdrop-blur-md border-b border-border shadow-sm"
               : "bg-transparent"
           }`}
         >
@@ -57,11 +57,11 @@ export default function Navbar() {
               className="flex items-center gap-2 group"
               whileHover={{ scale: 1.02 }}
             >
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg shadow-blue-500/30">
+              <div className="w-8 h-8 rounded-lg bg-accent flex items-center justify-center shadow-card">
                 <Code2 size={16} className="text-white" />
               </div>
-              <span className="font-bold text-lg tracking-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-                <span className="gradient-text">itzabd</span>
+              <span className="font-bold text-lg tracking-tight text-text-primary" style={{ fontFamily: "'Geist', 'Inter', sans-serif" }}>
+                <span>itzabd</span>
               </span>
             </motion.a>
 
@@ -73,14 +73,14 @@ export default function Navbar() {
                   href={link.href}
                   className={`relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
                     activeSection === link.href.slice(1)
-                      ? "text-white"
-                      : "text-slate-400 hover:text-white"
+                      ? "text-accent"
+                      : "text-text-secondary hover:text-accent"
                   }`}
                 >
                   {activeSection === link.href.slice(1) && (
                     <motion.div
                       layoutId="nav-indicator"
-                      className="absolute inset-0 bg-white/[0.07] rounded-lg border border-white/[0.08]"
+                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-accent"
                       transition={{ type: "spring", stiffness: 400, damping: 35 }}
                     />
                   )}
@@ -101,7 +101,7 @@ export default function Navbar() {
 
             {/* Mobile toggle */}
             <button
-              className="md:hidden p-2 rounded-lg bg-white/[0.05] border border-white/[0.08]"
+              className="md:hidden p-2 rounded-lg bg-white border border-border shadow-sm text-text-primary"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
             >
@@ -118,14 +118,14 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.2 }}
-              className="md:hidden bg-[#050c1a]/95 backdrop-blur-xl border-b border-white/[0.06]"
+              className="md:hidden bg-white/95 backdrop-blur-xl border-b border-border shadow-sm"
             >
               <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col gap-1">
                 {navLinks.map((link) => (
                   <a
                     key={link.href}
                     href={link.href}
-                    className="px-4 py-3 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-white/[0.05] transition-all"
+                    className="px-4 py-3 rounded-lg text-sm font-medium text-text-secondary hover:text-accent hover:bg-bg-alt transition-all"
                     onClick={() => setMobileOpen(false)}
                   >
                     {link.label}

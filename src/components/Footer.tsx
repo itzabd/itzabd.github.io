@@ -9,35 +9,35 @@ export default function Footer() {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
-    <footer className="relative z-10 border-t border-white/[0.05] bg-white/[0.01] backdrop-blur-sm">
+    <footer className="relative z-10 border-t border-border bg-background-alt">
       <div className="max-w-6xl mx-auto px-6 py-12">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Brand */}
           <div className="text-center md:text-left">
             <div className="flex items-center gap-2 justify-center md:justify-start mb-2">
-              <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+              <div className="w-7 h-7 rounded-lg bg-accent flex items-center justify-center shadow-card">
                 <Code2 size={14} className="text-white" />
               </div>
               <span
-                className="font-bold text-lg gradient-text"
-                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                className="font-bold text-lg text-text-primary"
+                style={{ fontFamily: "'Geist', 'Inter', sans-serif" }}
               >
                 Abdullah Hossien
               </span>
             </div>
-            <p className="text-slate-500 text-sm max-w-xs">
+            <p className="text-text-secondary text-sm max-w-xs">
               AI/ML Engineer & Full-Stack Developer from Bangladesh.
             </p>
           </div>
 
           {/* Nav links */}
-          <div className="flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm text-slate-400">
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm text-text-secondary">
             {["Hero", "About", "Skills", "Projects", "Research", "GitHub", "Contact"].map(
               (item) => (
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
-                  className="hover:text-white transition-colors animated-underline"
+                  className="hover:text-accent transition-colors"
                 >
                   {item}
                 </a>
@@ -51,7 +51,7 @@ export default function Footer() {
               href={personalInfo.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-9 h-9 rounded-xl bg-white/[0.04] border border-white/[0.07] flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/[0.08] hover:border-blue-500/30 transition-all"
+              className="w-9 h-9 rounded-xl bg-background border border-border flex items-center justify-center text-text-secondary hover:text-accent hover:bg-background-alt transition-all shadow-sm"
               aria-label="GitHub"
             >
               <GithubIcon size={16} />
@@ -60,21 +60,21 @@ export default function Footer() {
               href={personalInfo.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-9 h-9 rounded-xl bg-white/[0.04] border border-white/[0.07] flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/[0.08] hover:border-blue-500/30 transition-all"
+              className="w-9 h-9 rounded-xl bg-background border border-border flex items-center justify-center text-text-secondary hover:text-accent hover:bg-background-alt transition-all shadow-sm"
               aria-label="LinkedIn"
             >
               <LinkedinIcon size={16} />
             </a>
             <a
               href={`mailto:${personalInfo.email}`}
-              className="w-9 h-9 rounded-xl bg-white/[0.04] border border-white/[0.07] flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/[0.08] hover:border-blue-500/30 transition-all"
+              className="w-9 h-9 rounded-xl bg-background border border-border flex items-center justify-center text-text-secondary hover:text-accent hover:bg-background-alt transition-all shadow-sm"
               aria-label="Email"
             >
               <Mail size={16} />
             </a>
             <motion.button
               onClick={scrollToTop}
-              className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-blue-500/30 flex items-center justify-center text-blue-400 hover:from-blue-500/30 hover:to-purple-500/30 transition-all"
+              className="w-9 h-9 rounded-xl bg-accent text-white flex items-center justify-center shadow-card hover:bg-accent-hover transition-all"
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.95 }}
               aria-label="Back to top"
@@ -85,16 +85,16 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="h-px my-8 bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
+        <div className="h-px my-8 bg-border" />
 
         {/* Bottom bar */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-600">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-text-muted">
           <p>
             © {new Date().getFullYear()} Abdullah Hossien. All rights reserved.
           </p>
           <p className="flex items-center gap-1.5">
             Built with{" "}
-            <Heart size={11} className="text-rose-400 fill-rose-400" />
+            <Heart size={11} className="text-rose-500 fill-rose-500" />
             using Next.js 15, Tailwind CSS & Framer Motion
           </p>
         </div>

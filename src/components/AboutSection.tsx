@@ -28,13 +28,13 @@ export default function AboutSection() {
         >
           <span className="tag-pill mb-4 inline-block">About Me</span>
           <h2
-            className="text-4xl md:text-5xl font-black tracking-tight mb-4"
-            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+            className="text-4xl md:text-5xl font-black tracking-tight mb-4 text-text-primary"
+            style={{ fontFamily: "'Geist', 'Inter', sans-serif" }}
           >
             Passionate About{" "}
-            <span className="gradient-text">Innovation</span>
+            <span className="text-accent">Innovation</span>
           </h2>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-text-secondary text-lg max-w-2xl mx-auto leading-relaxed">
             A developer who builds at the intersection of intelligence and impact.
           </p>
         </motion.div>
@@ -46,22 +46,20 @@ export default function AboutSection() {
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
             variants={fadeInUp}
-            className="gradient-border p-8 rounded-2xl"
+            className="glass p-8 rounded-2xl"
           >
-            <h3 className="text-xl font-bold mb-4 text-white">Professional Summary</h3>
-            <p className="text-slate-400 leading-relaxed mb-6">{personalInfo.bio}</p>
+            <h3 className="text-xl font-bold mb-4 text-text-primary">Professional Summary</h3>
+            <p className="text-text-secondary leading-relaxed mb-6">
+              Results-driven developer with expertise in full-stack development, AI/ML applications, and system design. Proven track record of delivering innovative solutions across multiple domains including healthcare, e-commerce, and educational technology. Strong background in Python, JavaScript, Java, and modern web technologies.
+            </p>
             <div className="flex flex-col gap-3">
               <div className="flex items-center gap-3 text-sm">
-                <MapPin size={15} className="text-blue-400 shrink-0" />
-                <span className="text-slate-300">{personalInfo.location}</span>
+                <MapPin size={15} className="text-accent shrink-0" />
+                <span className="text-text-secondary">Bangladesh</span>
               </div>
               <div className="flex items-center gap-3 text-sm">
-                <Briefcase size={15} className="text-purple-400 shrink-0" />
-                <span className="text-slate-300">Open to Full-time & Remote Roles</span>
-              </div>
-              <div className="flex items-center gap-3 text-sm">
-                <GraduationCap size={15} className="text-cyan-400 shrink-0" />
-                <span className="text-slate-300">B.Sc Computer Science — In Progress</span>
+                <Briefcase size={15} className="text-accent shrink-0" />
+                <span className="text-text-secondary">Open to Full-time & Remote Roles</span>
               </div>
             </div>
           </motion.div>
@@ -72,114 +70,34 @@ export default function AboutSection() {
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
             variants={fadeInUp}
-            className="gradient-border p-8 rounded-2xl"
+            className="glass p-8 rounded-2xl flex flex-col justify-center"
           >
-            <h3 className="text-xl font-bold mb-5 text-white">Core Competencies</h3>
-            <motion.ul variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true }} className="space-y-3">
+            <h3 className="text-xl font-bold mb-5 text-text-primary">Core Competencies</h3>
+            <div className="flex flex-wrap gap-2">
               {[
-                { label: "Full-Stack Development", desc: "Frontend & Backend" },
-                { label: "AI / ML Engineering", desc: "LLM Integration, Signal Processing" },
-                { label: "EEG Neurotechnology", desc: "Brainwave Analysis, Cognitive AI" },
-                { label: "Healthcare Systems", desc: "DBMS, Workflow Optimization" },
-                { label: "System Architecture", desc: "Scalable Design, OOP Principles" },
-                { label: "API Development", desc: "REST APIs, Integration" },
-              ].map((item) => (
-                <motion.li
-                  key={item.label}
-                  variants={fadeInUp}
-                  className="flex items-start gap-3"
+                "Full-Stack Development",
+                "AI/ML Engineering",
+                "System Architecture",
+                "Database Design",
+                "API Integration",
+                "LLM Prompt Engineering",
+                "Signal Processing (EEG)",
+                "OOP Principles",
+                "Scalability Planning",
+                "Team Collaboration",
+              ].map((skill) => (
+                <span
+                  key={skill}
+                  className="px-3 py-1.5 bg-background-alt border border-border rounded-full text-sm font-medium text-text-secondary hover:text-accent hover:border-accent/30 transition-colors"
                 >
-                  <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-blue-400 to-purple-400 mt-2 shrink-0" />
-                  <div>
-                    <span className="text-slate-200 font-medium text-sm">{item.label}</span>
-                    <span className="text-slate-500 text-xs ml-2">— {item.desc}</span>
-                  </div>
-                </motion.li>
+                  {skill}
+                </span>
               ))}
-            </motion.ul>
+            </div>
           </motion.div>
         </div>
 
-        {/* Education & Experience timeline */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          variants={stagger}
-          className="grid md:grid-cols-2 gap-8"
-        >
-          {/* Education */}
-          <motion.div variants={fadeInUp}>
-            <h3 className="flex items-center gap-2 text-lg font-bold mb-6">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500/20 to-cyan-500/20 border border-blue-500/30 flex items-center justify-center">
-                <GraduationCap size={16} className="text-blue-400" />
-              </div>
-              Education
-            </h3>
-            {education.map((edu, i) => (
-              <div key={i} className="relative pl-12 mb-8">
-                <div className="timeline-line" />
-                <div className="absolute left-0 top-1 w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center shadow-lg shadow-blue-500/30">
-                  <GraduationCap size={16} className="text-white" />
-                </div>
-                <div className="glass p-5 rounded-xl ml-2">
-                  <div className="flex items-center gap-2 mb-2 flex-wrap">
-                    <span className="inline-flex items-center gap-1 text-xs bg-blue-500/15 text-blue-300 border border-blue-500/25 rounded-full px-2.5 py-0.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-green-400" />
-                      {edu.status}
-                    </span>
-                    <span className="flex items-center gap-1 text-xs text-slate-500">
-                      <Calendar size={11} />
-                      {edu.period}
-                    </span>
-                  </div>
-                  <h4 className="font-bold text-white mb-1">{edu.degree}</h4>
-                  <p className="text-slate-400 text-sm mb-3">{edu.institution}</p>
-                  <p className="text-slate-500 text-xs leading-relaxed">{edu.description}</p>
-                </div>
-              </div>
-            ))}
-          </motion.div>
 
-          {/* Experience */}
-          <motion.div variants={fadeInUp}>
-            <h3 className="flex items-center gap-2 text-lg font-bold mb-6">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-500/30 flex items-center justify-center">
-                <Briefcase size={16} className="text-purple-400" />
-              </div>
-              Experience
-            </h3>
-            {experience.map((exp, i) => (
-              <div key={i} className="relative pl-12 mb-8">
-                <div className="timeline-line" />
-                <div className="absolute left-0 top-1 w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center shadow-lg shadow-purple-500/30">
-                  <Briefcase size={16} className="text-white" />
-                </div>
-                <div className="glass p-5 rounded-xl ml-2">
-                  <div className="flex items-center gap-2 mb-2 flex-wrap">
-                    <span className="inline-flex items-center gap-1 text-xs bg-purple-500/15 text-purple-300 border border-purple-500/25 rounded-full px-2.5 py-0.5">
-                      {exp.type}
-                    </span>
-                    <span className="flex items-center gap-1 text-xs text-slate-500">
-                      <Calendar size={11} />
-                      {exp.period}
-                    </span>
-                  </div>
-                  <h4 className="font-bold text-white mb-1">{exp.role}</h4>
-                  <p className="text-slate-400 text-sm mb-3">{exp.company}</p>
-                  <ul className="space-y-1.5">
-                    {exp.highlights.map((h, j) => (
-                      <li key={j} className="flex items-start gap-2 text-xs text-slate-400">
-                        <span className="text-purple-400 mt-0.5 shrink-0">→</span>
-                        {h}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            ))}
-          </motion.div>
-        </motion.div>
       </div>
     </section>
   );

@@ -12,21 +12,11 @@ import GitHubSection from "@/components/GitHubSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
-// Client-only dynamic imports (canvas, mouse events)
-const AuroraBackground = dynamic(() => import("@/components/AuroraBackground"), { ssr: false });
-const ParticleField = dynamic(() => import("@/components/ParticleField"), { ssr: false });
-const CursorGlow = dynamic(() => import("@/components/CursorGlow"), { ssr: false });
+// Clean light mode doesn't need heavy canvas backgrounds
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-[#030712] overflow-x-hidden">
-      {/* Background layers */}
-      <AuroraBackground />
-      <ParticleField />
-      <CursorGlow />
-
-      {/* Noise texture */}
-      <div className="noise-overlay" />
+    <main className="relative min-h-screen bg-background overflow-x-hidden">
 
       {/* Navigation */}
       <Navbar />
