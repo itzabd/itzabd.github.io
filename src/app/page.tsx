@@ -1,9 +1,9 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
+import ExperienceSection from "@/components/ExperienceSection";
 import SkillsSection from "@/components/SkillsSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import ResearchSection from "@/components/ResearchSection";
@@ -12,26 +12,19 @@ import GitHubSection from "@/components/GitHubSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
-// Clean light mode doesn't need heavy canvas backgrounds
-
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-background overflow-x-hidden">
-
-      {/* Navigation */}
+    <main className="relative min-h-screen overflow-x-hidden" style={{ background: "transparent" }}>
       <Navbar />
-
-      {/* Page sections */}
       <HeroSection />
       <AboutSection />
+      <ExperienceSection />
       <SkillsSection />
       <ProjectsSection />
       <ResearchSection />
       <AchievementsSection />
       <GitHubSection />
       <ContactSection />
-
-      {/* Footer */}
       <Footer />
     </main>
   );

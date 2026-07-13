@@ -1,103 +1,90 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { GraduationCap, Briefcase, MapPin, Calendar } from "lucide-react";
-import { personalInfo, education, experience } from "@/lib/data";
+import { MapPin, Mail, Phone, Briefcase, GraduationCap } from "lucide-react";
+import { personalInfo } from "@/lib/data";
 
 const fadeInUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] as const } },
-};
-
-const stagger = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.15 } },
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } },
 };
 
 export default function AboutSection() {
   return (
-    <section id="about" className="section-padding relative z-10 w-full">
-      <div className="max-w-7xl mx-auto px-6 w-full">
-        {/* Section header */}
+    <section id="about" className="py-20 px-4 max-w-6xl mx-auto relative z-10">
+      {/* Header */}
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={fadeInUp}
+        className="text-center mb-12"
+      >
+        <h2 className="text-3xl font-bold text-white" style={{ fontFamily: "'Outfit', 'Inter', sans-serif" }}>
+          About <span className="gradient-text">Me</span>
+        </h2>
+      </motion.div>
+
+      {/* Grid */}
+      <div className="grid lg:grid-cols-2 gap-8 items-start">
+        {/* Left Side: Avatar/Visual Mockup */}
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true }}
           variants={fadeInUp}
-          className="text-center mb-16"
+          className="glass p-6 rounded-2xl flex justify-center items-center relative overflow-hidden group"
         >
-          <span className="tag-pill mb-4 inline-block">About Me</span>
-          <h2
-            className="text-4xl md:text-5xl font-black tracking-tight mb-4 text-text-primary"
-            style={{ fontFamily: "'Geist', 'Inter', sans-serif" }}
-          >
-            Passionate About{" "}
-            <span className="text-accent">Innovation</span>
-          </h2>
-          <p className="text-text-secondary text-lg max-w-2xl mx-auto leading-relaxed">
-            A developer who builds at the intersection of intelligence and impact.
-          </p>
+          <div className="card-accent-bar" />
+          <div className="relative w-64 h-64 rounded-2xl bg-gradient-to-br from-violet-500/20 to-cyan-500/20 flex items-center justify-center border border-white/10 group-hover:scale-102 transition-transform duration-500">
+            <span className="text-6xl font-black gradient-text tracking-tighter" style={{ fontFamily: "'Outfit', 'Inter', sans-serif" }}>
+              AM
+            </span>
+            <div className="absolute inset-0 bg-radial-gradient from-transparent to-black/20 pointer-events-none" />
+          </div>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
-          {/* Bio card */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={fadeInUp}
-            className="glass p-8 rounded-2xl"
-          >
-            <h3 className="text-xl font-bold mb-4 text-text-primary">Professional Summary</h3>
-            <p className="text-text-secondary leading-relaxed mb-6">
-              Results-driven developer with expertise in full-stack development, AI/ML applications, and system design. Proven track record of delivering innovative solutions across multiple domains including healthcare, e-commerce, and educational technology. Strong background in Python, JavaScript, Java, and modern web technologies.
-            </p>
-            <div className="flex flex-col gap-3">
-              <div className="flex items-center gap-3 text-sm">
-                <MapPin size={15} className="text-accent shrink-0" />
-                <span className="text-text-secondary">Bangladesh</span>
-              </div>
-              <div className="flex items-center gap-3 text-sm">
-                <Briefcase size={15} className="text-accent shrink-0" />
-                <span className="text-text-secondary">Open to Full-time & Remote Roles</span>
-              </div>
+        {/* Right Side: Bio and details */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+          className="glass p-6 rounded-2xl space-y-5 relative overflow-hidden"
+        >
+          <div className="card-accent-bar" />
+          <h3 className="text-xl font-bold text-white mb-2" style={{ fontFamily: "'Outfit', 'Inter', sans-serif" }}>
+            My Background
+          </h3>
+          <p className="text-gray-300 leading-relaxed text-sm">
+            {personalInfo.bio}
+          </p>
+
+          <div className="space-y-3 pt-2">
+            <div className="flex items-center gap-3 text-sm text-gray-300">
+              <MapPin size={16} className="text-cyan-400 shrink-0" />
+              <span>{personalInfo.location}</span>
             </div>
-          </motion.div>
-
-          {/* Core competencies */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={fadeInUp}
-            className="glass p-8 rounded-2xl flex flex-col justify-center"
-          >
-            <h3 className="text-xl font-bold mb-5 text-text-primary">Core Competencies</h3>
-            <div className="flex flex-wrap gap-2">
-              {[
-                "Full-Stack Development",
-                "AI/ML Engineering",
-                "System Architecture",
-                "Database Design",
-                "API Integration",
-                "LLM Prompt Engineering",
-                "Signal Processing (EEG)",
-                "OOP Principles",
-                "Scalability Planning",
-                "Team Collaboration",
-              ].map((skill) => (
-                <span
-                  key={skill}
-                  className="px-3 py-1.5 bg-background-alt border border-border rounded-full text-sm font-medium text-text-secondary hover:text-accent hover:border-accent/30 transition-colors"
-                >
-                  {skill}
-                </span>
-              ))}
+            <div className="flex items-center gap-3 text-sm text-gray-300">
+              <Mail size={16} className="text-cyan-400 shrink-0" />
+              <a href={`mailto:${personalInfo.email}`} className="hover:text-violet-400 transition-colors">
+                {personalInfo.email}
+              </a>
             </div>
-          </motion.div>
-        </div>
-
-
+            <div className="flex items-center gap-3 text-sm text-gray-300">
+              <Phone size={16} className="text-cyan-400 shrink-0" />
+              <span>{personalInfo.phone}</span>
+            </div>
+            <div className="flex items-center gap-3 text-sm text-gray-300">
+              <Briefcase size={16} className="text-cyan-400 shrink-0" />
+              <span>{personalInfo.availability}</span>
+            </div>
+            <div className="flex items-center gap-3 text-sm text-gray-300">
+              <GraduationCap size={16} className="text-cyan-400 shrink-0" />
+              <span>{personalInfo.degree}</span>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

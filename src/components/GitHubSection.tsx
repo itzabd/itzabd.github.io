@@ -1,51 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { GitBranch, Star, Activity } from "lucide-react";
+import { GitBranch, Star, Activity, Award } from "lucide-react";
 import { GithubIcon } from "@/components/icons";
-import { personalInfo } from "@/lib/data";
 
 const GITHUB_USERNAME = "itzabd";
 
-const fadeInUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] as const } },
-};
-
-const stagger = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.12 } },
-};
-
 const stats = [
-  {
-    label: "Repositories",
-    value: "16+",
-    icon: GitBranch,
-    color: "text-accent",
-    bg: "bg-background-alt border-border",
-  },
-  {
-    label: "Projects",
-    value: "15+",
-    icon: Star,
-    color: "text-accent",
-    bg: "bg-background-alt border-border",
-  },
-  {
-    label: "Followers",
-    value: "Active",
-    icon: GithubIcon,
-    color: "text-accent",
-    bg: "bg-background-alt border-border",
-  },
-  {
-    label: "Status",
-    value: "Open",
-    icon: Activity,
-    color: "text-accent",
-    bg: "bg-background-alt border-border",
-  },
+  { label: "Repositories", value: "16+", icon: GitBranch },
+  { label: "Projects", value: "15+", icon: Star },
+  { label: "Followers", value: "Active", icon: GithubIcon },
+  { label: "Status", value: "Open", icon: Activity },
 ];
 
 const languageStats = [
@@ -58,170 +23,160 @@ const languageStats = [
 
 export default function GitHubSection() {
   return (
-    <section id="github" className="section-padding relative z-10 w-full">
-      <div className="max-w-7xl mx-auto px-6 w-full">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={fadeInUp}
-          className="text-center mb-16"
-        >
-          <span className="tag-pill mb-4 inline-block">GitHub</span>
-          <h2
-            className="text-4xl md:text-5xl font-black tracking-tight mb-4 text-text-primary"
-            style={{ fontFamily: "'Geist', 'Inter', sans-serif" }}
-          >
-            Open Source{" "}
-            <span className="text-accent">Activity</span>
-          </h2>
-          <p className="text-text-secondary text-lg max-w-2xl mx-auto">
-            Consistent contributor with a diverse portfolio across multiple languages and domains.
-          </p>
-        </motion.div>
+    <section id="github" className="py-20 px-4 max-w-6xl mx-auto relative z-10">
+      {/* Header */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="text-center mb-12"
+      >
+        <h2 className="text-3xl font-bold text-white" style={{ fontFamily: "'Outfit', 'Inter', sans-serif" }}>
+          Open Source <span className="gradient-text">Contributions</span>
+        </h2>
+      </motion.div>
 
-        {/* Stats row */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          variants={stagger}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8"
-        >
-          {stats.map((stat) => (
-            <motion.div key={stat.label} variants={fadeInUp}>
-              <div
-                className={`glass p-5 flex flex-col items-center text-center rounded-2xl border ${stat.bg}`}
-              >
-                <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-3 border border-border bg-background`}>
-                  <stat.icon size={18} className={stat.color} />
-                </div>
-                <span
-                  className={`text-2xl font-black ${stat.color}`}
-                  style={{ fontFamily: "'Geist', 'Inter', sans-serif" }}
-                >
-                  {stat.value}
-                </span>
-                <span className="text-text-muted text-xs mt-1">{stat.label}</span>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 gap-8">
-          {/* GitHub Stats Card via badges */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-60px" }}
-            variants={fadeInUp}
-            className="glass p-6 rounded-2xl"
-          >
-            <h3 className="font-bold text-text-primary mb-5 flex items-center gap-2">
-              <GithubIcon size={18} className="text-accent" />
-              GitHub Stats
-            </h3>
-            <div className="space-y-4">
-              <img
-                src={`https://github-readme-stats.vercel.app/api?username=${GITHUB_USERNAME}&show_icons=true&theme=default&bg_color=FBFBFD00&hide_border=true&title_color=4F46E5&icon_color=4F46E5&text_color=334155`}
-                alt="GitHub Stats"
-                className="w-full rounded-xl"
-                loading="lazy"
-              />
-              <img
-                src={`https://github-readme-streak-stats.herokuapp.com/?user=${GITHUB_USERNAME}&theme=default&background=FBFBFD00&border=0F172A0F&ring=4F46E5&fire=4338CA&currStreakLabel=4F46E5&sideLabels=334155&dates=64748b&stroke=0F172A0F`}
-                alt="GitHub Streak"
-                className="w-full rounded-xl"
-                loading="lazy"
-              />
-            </div>
-          </motion.div>
-
-          {/* Language chart */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-60px" }}
-            variants={fadeInUp}
-            className="glass p-6 rounded-2xl flex flex-col"
-          >
-            <h3 className="font-bold text-text-primary mb-5 flex items-center gap-2">
-              <Activity size={18} className="text-accent" />
-              Language Distribution
-            </h3>
-
-            {/* Stacked bar */}
-            <div className="flex h-3 rounded-full overflow-hidden mb-6 gap-0.5">
-              {languageStats.map((lang) => (
-                <motion.div
-                  key={lang.name}
-                  initial={{ width: 0 }}
-                  whileInView={{ width: `${lang.percent}%` }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
-                  style={{ background: lang.color }}
-                  className="h-full first:rounded-l-full last:rounded-r-full"
-                />
-              ))}
-            </div>
-
-            <div className="space-y-3 flex-1">
-              {languageStats.map((lang) => (
-                <div key={lang.name} className="flex items-center justify-between">
-                  <div className="flex items-center gap-2.5">
-                    <div
-                      className="w-2.5 h-2.5 rounded-full"
-                      style={{ background: lang.color }}
-                    />
-                    <span className="text-sm text-text-secondary">{lang.name}</span>
-                  </div>
-                  <span className="text-sm text-text-muted font-medium">{lang.percent}%</span>
-                </div>
-              ))}
-            </div>
-
-            {/* Top Languages Image */}
-            <div className="mt-6">
-              <img
-                src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${GITHUB_USERNAME}&layout=compact&theme=default&bg_color=FBFBFD00&hide_border=true&text_color=334155&title_color=4F46E5`}
-                alt="Top Languages"
-                className="w-full rounded-xl"
-                loading="lazy"
-              />
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Contribution graph */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          variants={fadeInUp}
-          className="mt-8 glass p-6 rounded-2xl"
-        >
-          <h3 className="font-bold text-text-primary mb-5 flex items-center gap-2">
-            <Activity size={18} className="text-accent" />
-            Contribution Activity
-          </h3>
-          <img
-            src={`https://ghchart.rshah.org/2563EB/${GITHUB_USERNAME}`}
-            alt="GitHub contribution chart"
-            className="w-full rounded-xl opacity-80"
-            loading="lazy"
-          />
-          <p className="text-center mt-4">
-            <a
-              href={personalInfo.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-accent hover:text-accent-hover text-sm transition-colors font-medium"
+      {/* Stats Grid */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+        {stats.map((stat, index) => {
+          const Icon = stat.icon;
+          return (
+            <motion.div
+              key={stat.label}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.08 }}
+              className="glass p-4 rounded-xl text-center flex flex-col items-center relative overflow-hidden"
             >
-              View full profile on GitHub →
-            </a>
-          </p>
+              <div className="card-accent-bar" />
+              <div className="w-10 h-10 rounded-full flex items-center justify-center bg-white/5 border border-white/10 mb-3 text-cyan-400">
+                <Icon size={18} />
+              </div>
+              <span className="text-2xl font-bold text-white block" style={{ fontFamily: "'Outfit', 'Inter', sans-serif" }}>
+                {stat.value}
+              </span>
+              <span className="text-sm text-gray-400 mt-1 block">
+                {stat.label}
+              </span>
+            </motion.div>
+          );
+        })}
+      </div>
+
+      {/* Chart & Stats Container */}
+      <div className="grid md:grid-cols-2 gap-8">
+        {/* GitHub Stats Card */}
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="glass p-6 rounded-2xl relative overflow-hidden flex flex-col justify-between"
+        >
+          <div className="card-accent-bar" />
+          <h3 className="font-bold text-white mb-5 flex items-center gap-2" style={{ fontFamily: "'Outfit', 'Inter', sans-serif" }}>
+            <GithubIcon size={18} className="text-cyan-400" />
+            GitHub Repository Stats
+          </h3>
+          <div className="space-y-4">
+            <img
+              src={`https://github-readme-stats.vercel.app/api?username=${GITHUB_USERNAME}&show_icons=true&theme=dark&bg_color=00000000&hide_border=true&title_color=a78bfa&icon_color=06b6d4&text_color=e2e8f0`}
+              alt="GitHub Stats"
+              className="w-full rounded-xl"
+              loading="lazy"
+            />
+            <img
+              src={`https://github-readme-streak-stats.herokuapp.com/?user=${GITHUB_USERNAME}&theme=dark&background=00000000&border=00000000&ring=a78bfa&fire=06b6d4&currStreakLabel=e2e8f0&sideLabels=e2e8f0&dates=94a3b8&stroke=00000000`}
+              alt="GitHub Streak"
+              className="w-full rounded-xl"
+              loading="lazy"
+            />
+          </div>
+        </motion.div>
+
+        {/* Language chart */}
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="glass p-6 rounded-2xl flex flex-col relative overflow-hidden"
+        >
+          <div className="card-accent-bar" />
+          <h3 className="font-bold text-white mb-5 flex items-center gap-2" style={{ fontFamily: "'Outfit', 'Inter', sans-serif" }}>
+            <Activity size={18} className="text-cyan-400" />
+            Language Distribution
+          </h3>
+
+          {/* Stacked bar */}
+          <div className="flex h-2 rounded-full overflow-hidden mt-4 bg-white/5">
+            {languageStats.map((lang) => (
+              <div
+                key={lang.name}
+                style={{ width: `${lang.percent}%`, backgroundColor: lang.color }}
+                className="h-full first:rounded-l-full last:rounded-r-full"
+                title={`${lang.name}: ${lang.percent}%`}
+              />
+            ))}
+          </div>
+
+          <div className="space-y-3 flex-1 mt-6">
+            {languageStats.map((lang) => (
+              <div key={lang.name} className="flex items-center justify-between">
+                <div className="flex items-center gap-2.5">
+                  <div
+                    className="w-2.5 h-2.5 rounded-full"
+                    style={{ backgroundColor: lang.color }}
+                  />
+                  <span className="text-sm text-gray-300">{lang.name}</span>
+                </div>
+                <span className="text-sm text-gray-400 font-medium">{lang.percent}%</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Top Languages Image */}
+          <div className="mt-6 border-t border-white/5 pt-6">
+            <img
+              src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${GITHUB_USERNAME}&layout=compact&theme=dark&bg_color=00000000&hide_border=true&text_color=e2e8f0&title_color=a78bfa`}
+              alt="Top Languages"
+              className="w-full rounded-xl"
+              loading="lazy"
+            />
+          </div>
         </motion.div>
       </div>
+
+      {/* Contribution Activity Graph */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="mt-8 glass p-6 rounded-2xl relative overflow-hidden"
+      >
+        <div className="card-accent-bar" />
+        <h3 className="font-bold text-white mb-5 flex items-center gap-2" style={{ fontFamily: "'Outfit', 'Inter', sans-serif" }}>
+          <Activity size={18} className="text-cyan-400" />
+          Contribution Activity
+        </h3>
+        <div className="overflow-x-auto w-full pt-2">
+          <img
+            src={`https://ghchart.rshah.org/7C3AED/${GITHUB_USERNAME}`}
+            alt="GitHub contribution chart"
+            className="w-full min-w-[700px] h-auto rounded-xl opacity-90 filter invert dark:invert-0"
+            loading="lazy"
+          />
+        </div>
+        <p className="text-center mt-6">
+          <a
+            href={`https://github.com/${GITHUB_USERNAME}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-cyan-400 hover:text-cyan-300 text-sm transition-colors font-semibold"
+          >
+            View full profile on GitHub →
+          </a>
+        </p>
+      </motion.div>
     </section>
   );
 }

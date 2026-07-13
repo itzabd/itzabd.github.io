@@ -1,87 +1,83 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
-import {
-  FolderGit2, Layers, GraduationCap, Trophy, Sparkles,
-} from "lucide-react";
-import { GithubIcon } from "@/components/icons";
+import { motion } from "framer-motion";
 import { achievements } from "@/lib/data";
 
-const iconMap: Record<string, React.FC<{ size?: number; className?: string }>> = {
-  FolderGit2, Github: GithubIcon, Layers, GraduationCap, Trophy, Sparkles,
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } },
 };
 
-function AnimatedStat({ value, delay }: { value: string; delay: number }) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true });
-
-  return (
-    <motion.span
-      ref={ref}
-      initial={{ opacity: 0, y: 20 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.7, delay }}
-      className="text-4xl md:text-5xl font-black gradient-text block"
-      style={{ fontFamily: "'Geist', 'Inter', sans-serif" }}
-    >
-      {value}
-    </motion.span>
-  );
-}
+const recognitionItems = [
+  "Merit-based Undergraduate Scholarship — Independent University, Bangladesh",
+  "Dean's Merit List recognition",
+  "International FIDE Rapid Chess Rating",
+  "Volunteer — Independence Day Chess Competition 2024 (IUB)",
+  "Event Coordinator — July Memorial FIDE Chess Championship 2025 (IUB)"
+];
 
 export default function AchievementsSection() {
   return (
-    <section id="achievements" className="section-padding relative z-10 w-full">
-      <div className="max-w-7xl mx-auto px-6 w-full">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7 }}
-          className="text-center mb-16"
-        >
-          <span className="tag-pill mb-4 inline-block">Achievements</span>
-          <h2
-            className="text-4xl md:text-5xl font-black tracking-tight mb-4 text-text-primary"
-            style={{ fontFamily: "'Geist', 'Inter', sans-serif" }}
-          >
-            By The{" "}
-            <span className="text-accent">Numbers</span>
-          </h2>
-          <p className="text-text-secondary text-lg max-w-2xl mx-auto">
-            Milestones that reflect my dedication to engineering excellence.
-          </p>
-        </motion.div>
+    <section id="achievements" className="py-20 px-4 max-w-6xl mx-auto relative z-10">
+      {/* Header */}
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={fadeInUp}
+        className="text-center mb-12"
+      >
+        <h2 className="text-3xl font-bold text-white" style={{ fontFamily: "'Outfit', 'Inter', sans-serif" }}>
+          Key <span className="gradient-text">Achievements</span>
+        </h2>
+      </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
-          {achievements.map((ach, i) => {
-            const Icon = iconMap[ach.icon] || Trophy;
-            return (
-              <motion.div
-                key={ach.label}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.6, delay: i * 0.08 }}
-              >
-                <motion.div
-                  className="glass p-7 text-center group h-full"
-                  whileHover={{ y: -6, transition: { duration: 0.2 } }}
-                >
-                  <div className="flex justify-center mb-4">
-                    <div className="w-12 h-12 rounded-xl bg-background-alt border border-border flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <Icon size={22} className="text-accent" />
-                    </div>
-                  </div>
-                  <AnimatedStat value={ach.value} delay={i * 0.1 + 0.3} />
-                  <p className="text-text-secondary text-sm mt-2 font-medium">{ach.label}</p>
-                </motion.div>
-              </motion.div>
-            );
-          })}
-        </div>
+      {/* Stats Grid */}
+      <div className="flex flex-wrap justify-center gap-8">
+        {achievements.map((ach, index) => (
+          <motion.div
+            key={ach.label}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: index * 0.08 }}
+            className="text-center min-w-[120px]"
+          >
+            <span
+              className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent block"
+              style={{ fontFamily: "'Outfit', 'Inter', sans-serif" }}
+            >
+              {ach.value}
+            </span>
+            <span className="text-sm text-gray-400 mt-1 block">
+              {ach.label}
+            </span>
+          </motion.div>
+        ))}
       </div>
+
+      {/* Recognition panel */}
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fadeInUp}
+        className="glass p-6 rounded-2xl mt-12 max-w-3xl mx-auto relative overflow-hidden"
+      >
+        <div className="card-accent-bar" />
+        <h3 className="text-lg font-bold text-white mb-4" style={{ fontFamily: "'Outfit', 'Inter', sans-serif" }}>
+          Honors & Extracurricular Roles
+        </h3>
+        
+        <div className="divide-y divide-white/5">
+          {recognitionItems.map((item, i) => (
+            <div key={i} className="flex items-center gap-3 text-gray-300 py-3 last:pb-0 first:pt-0">
+              <span className="w-2 h-2 rounded-full bg-violet-400 shrink-0" />
+              <span className="text-sm leading-relaxed">{item}</span>
+            </div>
+          ))}
+        </div>
+      </motion.div>
     </section>
   );
 }
