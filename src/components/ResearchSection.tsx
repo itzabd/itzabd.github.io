@@ -48,17 +48,20 @@ export default function ResearchSection() {
             className="glass p-6 rounded-2xl relative flex flex-col justify-between overflow-hidden group"
           >
             <div className="card-accent-bar" />
-            
-            <div>
-              {/* Status Badge */}
-              <span className={`absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-semibold ${getStatusClasses(pub.status)}`}>
-                {pub.status}
-              </span>
 
-              {/* Title */}
-              <h3 className="text-lg font-bold text-white pr-24 leading-snug group-hover:text-cyan-300 transition-colors" style={{ fontFamily: "'Outfit', 'Inter', sans-serif" }}>
-                {pub.title}
-              </h3>
+            <div>
+              {/* Title + Status */}
+              <div className="flex items-start justify-between gap-3 mb-2">
+                <h3
+                  className="text-lg font-bold text-white leading-snug group-hover:text-cyan-300 transition-colors"
+                  style={{ fontFamily: "'Outfit', 'Inter', sans-serif" }}
+                >
+                  {pub.title}
+                </h3>
+                <span className={`shrink-0 px-3 py-1 rounded-full text-[11px] font-semibold ${getStatusClasses(pub.status)}`}>
+                  {pub.status}
+                </span>
+              </div>
 
               {/* Authors */}
               <p className="text-sm text-gray-400 mt-2">
