@@ -151,7 +151,7 @@ export const projects = [
       "Full-stack digital platform for street vendor registration, location management, QR-based identification, and document generation using Leaflet maps and REST APIs.",
     tech: ["React", "Express.js", "Supabase", "Leaflet", "JavaScript", "REST API"],
     github: "https://github.com/itzabd/StreetVendor",
-    live: null,
+    live: "https://streetvendor-web.onrender.com/home",
     featured: true,
     category: "Web App",
     gradient: "from-orange-600/20 to-rose-600/20",
