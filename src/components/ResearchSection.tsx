@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
-import { publications } from "@/lib/data";
+import { publications, personalInfo } from "@/lib/data";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -62,13 +62,25 @@ export default function ResearchSection() {
 
               {/* Authors */}
               <p className="text-sm text-gray-400 mt-2">
-                Md Abdullah Hossien Molla, et al.
+                {personalInfo.name}, et al.
               </p>
 
               {/* Journal/Venue */}
               <p className="text-sm text-violet-300 mt-1">
                 {pub.venue} ({pub.year})
               </p>
+
+              {/* Tags */}
+              <div className="flex flex-wrap gap-2 mt-3">
+                {pub.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-2.5 py-1 rounded-full text-[11px] font-medium bg-white/5 border border-white/10 text-gray-300"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
 
             {/* Link */}

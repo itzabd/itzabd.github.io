@@ -42,7 +42,7 @@ export default function AboutSection() {
               alt="Abdullah Hossien" 
               className="w-full h-full object-cover relative z-10"
             />
-            <div className="absolute inset-0 bg-radial-gradient from-transparent to-black/20 pointer-events-none z-20" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent pointer-events-none z-20" />
           </div>
         </motion.div>
 
