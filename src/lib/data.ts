@@ -234,10 +234,21 @@ export const publications = [
     doi: null,
     doiUrl: null,
     year: "2026",
-    status: "Under Review (Phase-1 Accepted)",
+    status: "Presented",
     statusColor: "text-yellow-300 bg-yellow-500/20 border-yellow-500/30",
     icon: "Cpu",
     tags: ["Robotics", "Assistive Tech", "AI Education", "Braille"],
+  },
+  {
+    title: "Road Condition Detection on Bangladeshi Roads: A Benchmark Study of YOLO Architectures",
+    venue: "ICSIE 2026",
+    doi: null,
+    doiUrl: null,
+    year: "2026",
+    status: "Accepted",
+    statusColor: "text-yellow-300 bg-yellow-500/20 border-yellow-500/30",
+    icon: "Car",
+    tags: ["Computer Vision", "YOLO", "Road Condition Detection", "Bangladesh"],
   },
 ];
 
