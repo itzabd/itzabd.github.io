@@ -99,14 +99,44 @@ export const skills = [
 
 export const projects = [
   {
+    id: "streetvendor",
+    title: "StreetVendor",
+    subtitle: "Digital Vendor Management Platform",
+    description:
+      "Full-stack digital platform for street vendor registration, location management, QR-based identification, and document generation using Leaflet maps and REST APIs.",
+    tech: ["React", "Express.js", "Supabase", "Leaflet", "JavaScript", "REST API"],
+    github: "https://github.com/itzabd/StreetVendor",
+    live: "https://streetvendor-web.onrender.com/home",
+    featured: true,
+    category: "Web App",
+    gradient: "from-orange-600/20 to-rose-600/20",
+    border: "border-orange-500/30",
+    badge: "Featured",
+  },
+  {
+    id: "ababils-attire",
+    title: "Ababil's Attire by Sanjida Bethi",
+    subtitle: "Boutique E-Commerce Platform",
+    description:
+      "Full-stack boutique e-commerce for handmade children's dresses and artisanal celebration cakes. Guest-first checkout with invoice-based tracking, bKash advance reconciliation, and a complete admin operations portal. Mobile-first — optimized for the primary Bangladeshi smartphone audience.",
+    tech: ["React", "TypeScript", "Vite", "Supabase", "PostgreSQL", "RLS", "Telegram Bot API"],
+    github: "https://github.com/itzabd/E-Commerce-for-Ababils-attire",
+    live: "https://e-commerce-for-ababils-attire.onrender.com/",
+    featured: true,
+    category: "Web App",
+    gradient: "from-pink-600/20 to-rose-600/20",
+    border: "border-pink-500/30",
+    badge: "Featured",
+  },
+  {
     id: "glohealth",
     title: "GloHealth AI",
     subtitle: "AI-Powered Health Symptom Reporting System",
     description:
-      "Full-stack AI healthcare platform for disease prediction, geospatial disease analysis, and appointment management with explainable ML insights powered by XGBoost and Scikit-learn.",
+      "Full-stack AI healthcare platform for disease prediction, geospatial disease analysis, and appointment management with explainable ML insights powered by XGBoost and Scikit-learn. Admin demo: abdulahad6411@gmail.com / abdulahad6411@gmail.com",
     tech: ["Python", "Flask", "Scikit-learn", "XGBoost", "Supabase", "PostgreSQL", "Bootstrap"],
     github: "https://github.com/itzabd/GloHealth_Ai",
-    live: null,
+    live: "https://glohealth-ai-fw71.onrender.com/",
     featured: true,
     category: "Healthcare",
     gradient: "from-green-600/20 to-blue-600/20",
@@ -141,21 +171,6 @@ export const projects = [
     category: "Healthcare",
     gradient: "from-blue-600/20 to-indigo-600/20",
     border: "border-blue-500/30",
-    badge: "Featured",
-  },
-  {
-    id: "streetvendor",
-    title: "StreetVendor",
-    subtitle: "Digital Vendor Management Platform",
-    description:
-      "Full-stack digital platform for street vendor registration, location management, QR-based identification, and document generation using Leaflet maps and REST APIs.",
-    tech: ["React", "Express.js", "Supabase", "Leaflet", "JavaScript", "REST API"],
-    github: "https://github.com/itzabd/StreetVendor",
-    live: "https://streetvendor-web.onrender.com/home",
-    featured: true,
-    category: "Web App",
-    gradient: "from-orange-600/20 to-rose-600/20",
-    border: "border-orange-500/30",
     badge: "Featured",
   },
   {
