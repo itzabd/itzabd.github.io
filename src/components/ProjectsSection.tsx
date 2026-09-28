@@ -48,13 +48,23 @@ export default function ProjectsSection() {
             >
               {/* Image Container with Gradient */}
               <div className="h-48 bg-gradient-to-br from-violet-500/20 to-cyan-500/20 relative flex items-center justify-center overflow-hidden">
-                {/* Backdrop effect */}
-                <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300" />
-                
-                {/* Huge first letter in the background */}
-                <span className="text-9xl font-black text-white/5 select-none pointer-events-none group-hover:scale-110 transition-transform duration-500">
-                  {project.title.charAt(0)}
-                </span>
+                {project.image ? (
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <>
+                    {/* Backdrop effect */}
+                    <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300" />
+                    
+                    {/* Huge first letter in the background */}
+                    <span className="text-9xl font-black text-white/5 select-none pointer-events-none group-hover:scale-110 transition-transform duration-500">
+                      {project.title.charAt(0)}
+                    </span>
+                  </>
+                )}
                 
                 {/* Category Badge overlay */}
                 <span className="absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-semibold glass-sm text-cyan-300">

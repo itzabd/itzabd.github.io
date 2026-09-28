@@ -127,6 +127,7 @@ export const projects = [
     gradient: "from-pink-600/20 to-rose-600/20",
     border: "border-pink-500/30",
     badge: "Featured",
+    image: "/projects/ababils-attire.png",
   },
   {
     id: "glohealth",
@@ -142,6 +143,7 @@ export const projects = [
     gradient: "from-green-600/20 to-blue-600/20",
     border: "border-green-500/30",
     badge: "Featured",
+    image: "/projects/glohealth-ai.png",
   },
   {
     id: "mindwaveweb",
