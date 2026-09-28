@@ -116,7 +116,7 @@ export const projects = [
   },
   {
     id: "ababils-attire",
-    title: "Ababil's Attire by Sanjida Bethi",
+    title: "Ababil's Attire",
     subtitle: "Boutique E-Commerce Platform",
     description:
       "Full-stack boutique e-commerce for handmade children's dresses and artisanal celebration cakes. Guest-first checkout with invoice-based tracking, bKash advance reconciliation, and a complete admin operations portal. Mobile-first — optimized for the primary Bangladeshi smartphone audience.",
