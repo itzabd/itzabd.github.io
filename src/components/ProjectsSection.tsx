@@ -14,9 +14,9 @@ const fadeInUp = {
 export default function ProjectsSection() {
   const [showAll, setShowAll] = useState(false);
 
-  const featured = projects.filter((p) => p.featured);
-  const rest = projects.filter((p) => !p.featured);
-  const displayed = showAll ? projects : featured;
+  const INITIAL_COUNT = 3;
+  const displayed = showAll ? projects : projects.slice(0, INITIAL_COUNT);
+  const remaining = projects.length - INITIAL_COUNT;
 
   return (
     <section id="projects" className="py-20 px-4 max-w-6xl mx-auto relative z-10">
@@ -131,7 +131,7 @@ export default function ProjectsSection() {
       </div>
 
       {/* Show more/less button */}
-      {rest.length > 0 && (
+      {remaining > 0 && (
         <div className="flex justify-center mt-10">
           <button
             onClick={() => setShowAll(!showAll)}
@@ -143,7 +143,7 @@ export default function ProjectsSection() {
               </>
             ) : (
               <>
-                Show {rest.length} More Projects <ChevronDown size={16} />
+                View {remaining} More Projects <ChevronDown size={16} />
               </>
             )}
           </button>

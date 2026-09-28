@@ -112,6 +112,7 @@ export const projects = [
     gradient: "from-orange-600/20 to-rose-600/20",
     border: "border-orange-500/30",
     badge: "Featured",
+    image: "/projects/streetvendor.png",
   },
   {
     id: "ababils-attire",
