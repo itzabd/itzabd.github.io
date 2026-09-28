@@ -34,6 +34,11 @@ export const metadata: Metadata = {
     description: "Pioneering AI/ML applications — EEG × LLM researcher, full-stack developer.",
   },
   robots: { index: true, follow: true },
+  icons: {
+    icon: "/icon.jpg",
+    shortcut: "/icon.jpg",
+    apple: "/icon.jpg",
+  },
 };
 
 export default function RootLayout({
@@ -44,6 +49,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
+        <link rel="icon" href="/icon.jpg" type="image/jpeg" />
+        <link rel="shortcut icon" href="/icon.jpg" type="image/jpeg" />
+        <link rel="apple-touch-icon" href="/icon.jpg" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
