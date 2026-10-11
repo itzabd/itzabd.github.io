@@ -18,11 +18,6 @@ export default function Footer() {
           © {new Date().getFullYear()} {personalInfo.name} · All rights reserved.
         </p>
 
-        {/* Center: Neutral Status Pill */}
-        <div className="availability-pill !text-[11px] !py-0.5 !px-2.5">
-          <span className="availability-dot" />
-          <span>{personalInfo.availability}</span>
-        </div>
 
         {/* Right: Social Icons with Tooltips + Back to Top */}
         <div className="flex items-center gap-3">
