@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, MapPin, Send, CheckCircle, Loader2, Phone, Sparkles } from "lucide-react";
-import { LinkedinIcon, GithubIcon } from "@/components/icons";
+import { LinkedinIcon, GithubIcon, ScholarIcon, InstagramIcon } from "@/components/icons";
 import { personalInfo } from "@/lib/data";
 import { ease } from "@/lib/motion";
 
@@ -117,11 +117,22 @@ export default function ContactSection() {
             </span>
             <div className="flex gap-2.5">
               <a
+                href={personalInfo.scholar}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-slate-300 hover:text-amber-400 hover:border-amber-400/30 transition-all"
+                aria-label="Google Scholar"
+                title="Google Scholar"
+              >
+                <ScholarIcon size={18} />
+              </a>
+              <a
                 href={personalInfo.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-slate-300 hover:text-white hover:border-white/20 transition-all"
                 aria-label="GitHub"
+                title="GitHub"
               >
                 <GithubIcon size={18} />
               </a>
@@ -131,8 +142,19 @@ export default function ContactSection() {
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-slate-300 hover:text-white hover:border-white/20 transition-all"
                 aria-label="LinkedIn"
+                title="LinkedIn"
               >
                 <LinkedinIcon size={18} />
+              </a>
+              <a
+                href={personalInfo.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-slate-300 hover:text-pink-400 hover:border-pink-400/30 transition-all"
+                aria-label="Instagram"
+                title="Instagram"
+              >
+                <InstagramIcon size={18} />
               </a>
             </div>
           </div>

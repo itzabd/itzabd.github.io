@@ -12,7 +12,7 @@ import {
   Sparkles,
   ExternalLink 
 } from "lucide-react";
-import { GithubIcon, LinkedinIcon } from "@/components/icons";
+import { GithubIcon, LinkedinIcon, InstagramIcon, ScholarIcon } from "@/components/icons";
 import { personalInfo, achievements } from "@/lib/data";
 import { ease, spring } from "@/lib/motion";
 
@@ -146,11 +146,24 @@ export default function HeroSection() {
           </motion.a>
 
           <motion.a
+            href={personalInfo.scholar}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-secondary !px-3"
+            aria-label="Google Scholar"
+            title="Google Scholar Profile"
+            whileTap={{ scale: 0.98 }}
+          >
+            <ScholarIcon size={16} className="text-amber-400" />
+          </motion.a>
+
+          <motion.a
             href={personalInfo.github}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-secondary !px-3"
             aria-label="GitHub"
+            title="GitHub Profile"
             whileTap={{ scale: 0.98 }}
           >
             <GithubIcon size={16} />
@@ -162,15 +175,29 @@ export default function HeroSection() {
             rel="noopener noreferrer"
             className="btn-secondary !px-3"
             aria-label="LinkedIn"
+            title="LinkedIn Profile"
             whileTap={{ scale: 0.98 }}
           >
             <LinkedinIcon size={16} />
           </motion.a>
 
           <motion.a
+            href={personalInfo.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-secondary !px-3"
+            aria-label="Instagram"
+            title="Instagram Profile"
+            whileTap={{ scale: 0.98 }}
+          >
+            <InstagramIcon size={16} />
+          </motion.a>
+
+          <motion.a
             href="#contact"
             className="btn-secondary !px-3"
             aria-label="Email"
+            title="Contact / Email"
             whileTap={{ scale: 0.98 }}
           >
             <Mail size={16} />

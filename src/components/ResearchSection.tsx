@@ -7,12 +7,12 @@ import {
   ExternalLink, 
   ChevronDown, 
   Sparkles, 
-  Award,
   HeartPulse,
   Brain,
   Cpu,
   Car
 } from "lucide-react";
+import { ScholarIcon } from "@/components/icons";
 import { publications, researchAreas, personalInfo } from "@/lib/data";
 import { ease } from "@/lib/motion";
 
@@ -42,8 +42,22 @@ export default function ResearchSection() {
           Research & Peer-Reviewed Publications
         </h2>
         <p className="text-slate-400 text-sm sm:text-base mt-3 leading-relaxed">
-          Peer-reviewed conference proceedings and accepted manuscripts focusing on safe machine learning, healthcare biosignals, and assistive edge robotics.
+          Author of 4 peer-reviewed publications (including 2 as First Author) spanning object detection benchmarks, clinical safety ML, and assistive robotics.
         </p>
+
+        {/* Google Scholar Link */}
+        <div className="mt-5 flex justify-center">
+          <a
+            href={personalInfo.scholar}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-amber-500/10 border border-amber-500/30 text-xs font-medium text-amber-300 hover:bg-amber-500/20 hover:border-amber-400 transition-all shadow-sm"
+          >
+            <ScholarIcon size={15} />
+            <span>Google Scholar Profile</span>
+            <ExternalLink size={12} className="opacity-70" />
+          </a>
+        </div>
       </div>
 
       {/* Publications Grid */}
@@ -51,6 +65,7 @@ export default function ResearchSection() {
         {publications.map((pub, index) => {
           const isExpanded = expandedPub === index;
           const isPublished = pub.status.toLowerCase().includes("published");
+          const isFirstAuthor = pub.authorship === "First Author";
 
           return (
             <motion.div
@@ -63,23 +78,27 @@ export default function ResearchSection() {
             >
               <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
                 <div className="flex-1">
-                  {/* Status & Venue Badges */}
+                  {/* Status, Authorship & Venue Badges */}
                   <div className="flex flex-wrap items-center gap-2 mb-3">
                     <span
                       className={`badge-tag ${
-                        isPublished ? "badge-academic" : "badge-tech"
+                        isFirstAuthor ? "badge-academic" : "badge-tech"
+                      } !text-[11px] font-bold`}
+                    >
+                      {pub.authorship || "Author"}
+                    </span>
+
+                    <span
+                      className={`badge-tag ${
+                        isPublished ? "badge-subtle" : "badge-subtle"
                       } !text-[11px]`}
                     >
                       {pub.status}
                     </span>
-                    <span className="text-xs font-mono font-medium text-slate-400">
+
+                    <span className="text-xs font-mono font-medium text-slate-300">
                       {pub.venue}
                     </span>
-                    {pub.publisher && (
-                      <span className="badge-tag badge-subtle !text-[10px]">
-                        {pub.publisher}
-                      </span>
-                    )}
                   </div>
 
                   {/* Title */}
@@ -89,7 +108,7 @@ export default function ResearchSection() {
 
                   {/* Authors */}
                   <p className="text-xs font-mono text-slate-400 mt-2">
-                    <span className="text-indigo-300 font-semibold">{personalInfo.displayName}</span> (Co-Author) · Independent University, Bangladesh
+                    <span className="text-indigo-300 font-semibold">{personalInfo.displayName}</span> · Independent University, Bangladesh
                   </p>
 
                   {/* Tags */}
@@ -119,14 +138,14 @@ export default function ResearchSection() {
                     </a>
                   ) : (
                     <span className="px-3 py-1.5 rounded-xl bg-white/[0.03] border border-white/[0.06] text-xs text-slate-400 font-mono">
-                      Proceedings In Press
+                      In Press
                     </span>
                   )}
 
                   {pub.abstract && (
                     <button
                       onClick={() => toggleAbstract(index)}
-                      className="btn-secondary !py-2 !px-3 !text-xs !rounded-xl text-slate-300 flex items-center gap-1.5"
+                      className="btn-secondary !py-2 !px-3 !text-xs !rounded-xl text-slate-300 flex items-center gap-1.5 cursor-pointer"
                       aria-expanded={isExpanded}
                     >
                       <span>{isExpanded ? "Hide Abstract" : "Abstract"}</span>
@@ -153,7 +172,7 @@ export default function ResearchSection() {
                   >
                     <div className="mt-4 pt-4 border-t border-white/[0.06] bg-black/20 p-4 rounded-xl text-xs md:text-sm text-slate-300 leading-relaxed font-sans">
                       <strong className="text-white block mb-1 font-mono text-[11px] tracking-wider uppercase text-indigo-300">
-                        Research Abstract:
+                        Research Abstract & Methodology:
                       </strong>
                       {pub.abstract}
                     </div>
@@ -172,7 +191,7 @@ export default function ResearchSection() {
             Core Research Domains
           </span>
           <h3 className="text-2xl font-bold text-white mt-1 font-['Space_Grotesk']">
-            Research Investigations & Interests
+            Laboratory Investigations & Methodologies
           </h3>
         </div>
 

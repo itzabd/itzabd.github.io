@@ -1,7 +1,7 @@
 "use client";
 
 import { Mail, ArrowUp } from "lucide-react";
-import { LinkedinIcon, GithubIcon } from "@/components/icons";
+import { LinkedinIcon, GithubIcon, ScholarIcon, InstagramIcon } from "@/components/icons";
 import { personalInfo } from "@/lib/data";
 
 export default function Footer() {
@@ -25,11 +25,22 @@ export default function Footer() {
         {/* Center: Social icons */}
         <div className="flex items-center gap-4">
           <a
+            href={personalInfo.scholar}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-slate-400 hover:text-amber-400 transition-colors"
+            aria-label="Google Scholar"
+            title="Google Scholar"
+          >
+            <ScholarIcon size={17} />
+          </a>
+          <a
             href={personalInfo.github}
             target="_blank"
             rel="noopener noreferrer"
             className="text-slate-400 hover:text-white transition-colors"
             aria-label="GitHub"
+            title="GitHub"
           >
             <GithubIcon size={17} />
           </a>
@@ -39,13 +50,25 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="text-slate-400 hover:text-white transition-colors"
             aria-label="LinkedIn"
+            title="LinkedIn"
           >
             <LinkedinIcon size={17} />
+          </a>
+          <a
+            href={personalInfo.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-slate-400 hover:text-pink-400 transition-colors"
+            aria-label="Instagram"
+            title="Instagram"
+          >
+            <InstagramIcon size={17} />
           </a>
           <a
             href={`mailto:${personalInfo.email}`}
             className="text-slate-400 hover:text-white transition-colors"
             aria-label="Email"
+            title="Email"
           >
             <Mail size={17} />
           </a>

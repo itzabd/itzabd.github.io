@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { GraduationCap, MapPin, CheckCircle2 } from "lucide-react";
-import { education } from "@/lib/data";
+import { GraduationCap, MapPin, CheckCircle2, Mail, Users } from "lucide-react";
+import { education, academicReferences } from "@/lib/data";
 import { ease } from "@/lib/motion";
 
 export default function EducationSection() {
@@ -18,7 +18,7 @@ export default function EducationSection() {
           Education & Core Coursework
         </h2>
         <p className="text-slate-400 text-sm sm:text-base mt-2">
-          Demonstrated academic consistency from high school to undergraduate studies.
+          Demonstrated academic consistency from secondary education to undergraduate studies.
         </p>
       </div>
 
@@ -83,6 +83,57 @@ export default function EducationSection() {
             )}
           </motion.div>
         ))}
+      </div>
+
+      {/* Academic References */}
+      <div className="mt-16 pt-10 border-t border-white/[0.08]">
+        <div className="flex items-center gap-2 mb-2">
+          <Users size={16} className="text-teal-400" />
+          <h3 className="text-xl font-bold text-white font-['Space_Grotesk']">
+            Academic References & Faculty Mentors
+          </h3>
+        </div>
+        <p className="text-xs sm:text-sm text-slate-400 mb-6">
+          Faculty references from Independent University, Bangladesh who supervise and collaborate on my research and coursework.
+        </p>
+
+        <div className="grid sm:grid-cols-2 gap-4">
+          {academicReferences.map((ref, idx) => (
+            <motion.div
+              key={ref.name}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: idx * 0.08, ease: ease.out }}
+              className="surface-card p-5 flex flex-col justify-between"
+            >
+              <div>
+                <h4 className="text-base font-bold text-white font-['Space_Grotesk']">
+                  {ref.name}
+                </h4>
+                <p className="text-xs font-mono text-teal-300 font-medium mt-0.5">
+                  {ref.role}
+                </p>
+                <p className="text-xs text-slate-300 mt-2 leading-relaxed">
+                  {ref.department}
+                </p>
+                <p className="text-[11px] text-slate-400">
+                  {ref.school} · {ref.institution}
+                </p>
+              </div>
+
+              <div className="mt-4 pt-3 border-t border-white/[0.06] flex items-center justify-between">
+                <a
+                  href={`mailto:${ref.email}`}
+                  className="inline-flex items-center gap-1.5 text-xs text-amber-300 hover:text-amber-200 transition-colors font-mono"
+                >
+                  <Mail size={13} />
+                  <span>{ref.email}</span>
+                </a>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
