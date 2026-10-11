@@ -11,103 +11,89 @@ export default function Footer() {
   };
 
   return (
-    <footer className="w-full mt-24 border-t border-white/[0.08] bg-black/40 backdrop-blur-xl">
-      <div className="max-w-6xl mx-auto px-4 py-10">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-white/[0.06]">
-          {/* Identity & Status */}
-          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 text-center sm:text-left">
-            <div className="w-9 h-9 rounded-xl overflow-hidden border border-white/15 bg-black shrink-0 shadow-md">
-              <img src="/icon.jpg" alt="Logo" className="w-full h-full object-cover" />
-            </div>
+    <footer className="w-full mt-24 py-6 px-4 border-t border-white/[0.08] bg-black/40 backdrop-blur-xl">
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-mono">
+        {/* Left: Copyright */}
+        <p className="text-slate-400">
+          © {new Date().getFullYear()} {personalInfo.name} · All rights reserved.
+        </p>
 
-            <div>
-              <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2.5">
-                <h3 className="text-sm font-bold text-white font-['Space_Grotesk']">
-                  {personalInfo.name}
-                </h3>
-                <div className="availability-pill !text-[11px] !py-0.5 !px-2.5">
-                  <span className="availability-dot" />
-                  <span>{personalInfo.availability}</span>
-                </div>
-              </div>
-              <p className="text-xs text-slate-400 mt-1 font-mono">
-                AI/ML Researcher & Full-Stack Developer · Independent University, Bangladesh
-              </p>
-            </div>
-          </div>
+        {/* Center: Neutral Status Pill */}
+        <div className="availability-pill !text-[11px] !py-0.5 !px-2.5">
+          <span className="availability-dot" />
+          <span>{personalInfo.availability}</span>
+        </div>
 
-          {/* Social Icons with Tooltips */}
-          <div className="flex items-center gap-2">
-            <Tooltip content="Google Scholar Profile" position="top">
+        {/* Right: Social Icons with Tooltips + Back to Top */}
+        <div className="flex items-center gap-3">
+          <div className="flex items-center gap-1.5">
+            <Tooltip content="Google Scholar" position="top">
               <a
                 href={personalInfo.scholar}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-slate-300 hover:text-amber-400 hover:border-amber-400/30 hover:bg-white/[0.08] transition-all"
+                className="w-7 h-7 rounded-lg bg-white/[0.03] border border-white/[0.08] flex items-center justify-center text-slate-400 hover:text-amber-400 hover:border-amber-400/30 transition-all"
                 aria-label="Google Scholar"
               >
-                <ScholarIcon size={16} />
+                <ScholarIcon size={14} />
               </a>
             </Tooltip>
 
-            <Tooltip content="GitHub Profile (@itzabd)" position="top">
+            <Tooltip content="GitHub" position="top">
               <a
                 href={personalInfo.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-slate-300 hover:text-white hover:border-white/20 hover:bg-white/[0.08] transition-all"
+                className="w-7 h-7 rounded-lg bg-white/[0.03] border border-white/[0.08] flex items-center justify-center text-slate-400 hover:text-white hover:border-white/20 transition-all"
                 aria-label="GitHub"
               >
-                <GithubIcon size={16} />
+                <GithubIcon size={14} />
               </a>
             </Tooltip>
 
-            <Tooltip content="LinkedIn Profile" position="top">
+            <Tooltip content="LinkedIn" position="top">
               <a
                 href={personalInfo.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-slate-300 hover:text-white hover:border-white/20 hover:bg-white/[0.08] transition-all"
+                className="w-7 h-7 rounded-lg bg-white/[0.03] border border-white/[0.08] flex items-center justify-center text-slate-400 hover:text-white hover:border-white/20 transition-all"
                 aria-label="LinkedIn"
               >
-                <LinkedinIcon size={16} />
+                <LinkedinIcon size={14} />
               </a>
             </Tooltip>
 
-            <Tooltip content="Instagram (@itz_abd_)" position="top">
+            <Tooltip content="Instagram" position="top">
               <a
                 href={personalInfo.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-slate-300 hover:text-pink-400 hover:border-pink-400/30 hover:bg-white/[0.08] transition-all"
+                className="w-7 h-7 rounded-lg bg-white/[0.03] border border-white/[0.08] flex items-center justify-center text-slate-400 hover:text-pink-400 hover:border-pink-400/30 transition-all"
                 aria-label="Instagram"
               >
-                <InstagramIcon size={16} />
+                <InstagramIcon size={14} />
               </a>
             </Tooltip>
 
-            <Tooltip content="Send Direct Email" position="top">
+            <Tooltip content="Email" position="top">
               <a
                 href={`mailto:${personalInfo.email}`}
-                className="w-9 h-9 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-slate-300 hover:text-teal-300 hover:border-teal-400/30 hover:bg-white/[0.08] transition-all"
+                className="w-7 h-7 rounded-lg bg-white/[0.03] border border-white/[0.08] flex items-center justify-center text-slate-400 hover:text-teal-300 hover:border-teal-400/30 transition-all"
                 aria-label="Email"
               >
-                <Mail size={16} />
+                <Mail size={14} />
               </a>
             </Tooltip>
           </div>
-        </div>
 
-        {/* Bottom Bar: Copyright & Back to Top */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400 font-mono">
-          <p>© {new Date().getFullYear()} {personalInfo.name}. All rights reserved.</p>
+          <span className="text-white/10 hidden sm:inline">|</span>
 
           <button
             onClick={scrollToTop}
-            className="group inline-flex items-center gap-1.5 text-xs font-mono text-slate-400 hover:text-white transition-colors cursor-pointer"
+            className="group flex items-center gap-1 text-slate-400 hover:text-white transition-colors cursor-pointer text-xs"
           >
-            <span>Back to top</span>
-            <ArrowUp size={13} className="group-hover:-translate-y-0.5 transition-transform" />
+            <span>Top</span>
+            <ArrowUp size={12} className="group-hover:-translate-y-0.5 transition-transform" />
           </button>
         </div>
       </div>

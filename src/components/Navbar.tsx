@@ -58,8 +58,11 @@ export default function Navbar() {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <div className="w-8 h-8 rounded-lg overflow-hidden border border-white/15 bg-black shrink-0 shadow-sm">
-                <img src="/icon.jpg" alt="Logo" className="w-full h-full object-cover" />
+              <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-white/[0.05] border border-white/10 group-hover:border-sky-500/40 group-hover:bg-sky-500/10 transition-colors text-sky-400">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="4 17 10 11 4 5" />
+                  <line x1="12" y1="19" x2="20" y2="19" />
+                </svg>
               </div>
               <span className="font-bold text-base tracking-tight text-white font-['Space_Grotesk']">
                 Abdullah Hossien
