@@ -488,7 +488,21 @@ export const journeyMilestones = [
   },
 ];
 
-export const academicReferences = [
+export interface ReferenceItem {
+  name: string;
+  role: string;
+  department?: string;
+  school?: string;
+  institution: string;
+  email: string;
+  phone?: string;
+  type: "academic" | "industry";
+  badge: string;
+  website?: string;
+  address?: string;
+}
+
+export const references: ReferenceItem[] = [
   {
     name: "Mohammad Shidujaman, PhD",
     role: "Assistant Professor",
@@ -496,6 +510,8 @@ export const academicReferences = [
     school: "School of Engineering, Technology and Sciences",
     institution: "Independent University, Bangladesh",
     email: "shidujaman@iub.edu.bd",
+    type: "academic",
+    badge: "Academic & Research Advisor",
   },
   {
     name: "Md Tarek Habib, PhD",
@@ -504,5 +520,31 @@ export const academicReferences = [
     school: "School of Engineering, Technology and Sciences",
     institution: "Independent University, Bangladesh",
     email: "tarek@iub.edu.bd",
+    type: "academic",
+    badge: "Academic Advisor",
+  },
+  {
+    name: "Md Abu Sayed",
+    role: "Lecturer A",
+    department: "Dept. of Computer Science and Engineering",
+    school: "School of Engineering, Technology and Sciences",
+    institution: "Independent University, Bangladesh",
+    email: "asayed@iub.edu.bd",
+    type: "academic",
+    badge: "Faculty Reference",
+  },
+  {
+    name: "Md. Monwar Hossain (Nibir)",
+    role: "Sr. Software Engineer",
+    institution: "ERP.COM.BD LTD",
+    email: "nibir@erp.com.bd",
+    phone: "+88 01621748486",
+    website: "https://www.erp.com.bd",
+    address: "985 Road-16, Avenue-2, Mirpur DOHS, Dhaka",
+    type: "industry",
+    badge: "Industry / Engineering Reference",
   },
 ];
+
+export const academicReferences = references;
+

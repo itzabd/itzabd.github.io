@@ -14,6 +14,7 @@ import {
 import { GithubIcon, LinkedinIcon, InstagramIcon, ScholarIcon } from "@/components/icons";
 import { personalInfo, achievements } from "@/lib/data";
 import { ease, spring } from "@/lib/motion";
+import Tooltip from "@/components/Tooltip";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -120,60 +121,65 @@ export default function HeroSection() {
                 <span>The Journey</span>
               </motion.a>
 
-              {/* Grouped Social Icons */}
+              {/* Grouped Social Icons with Tooltips */}
               <div className="flex items-center gap-1.5 p-1 rounded-xl bg-white/[0.03] border border-white/[0.08]">
-                <a
-                  href={personalInfo.scholar}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-lg flex items-center justify-center text-slate-300 hover:text-amber-400 hover:bg-white/[0.06] transition-colors"
-                  aria-label="Google Scholar"
-                  title="Google Scholar Profile"
-                >
-                  <ScholarIcon size={16} />
-                </a>
+                <Tooltip content="Google Scholar Profile" position="top">
+                  <a
+                    href={personalInfo.scholar}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-9 h-9 rounded-lg flex items-center justify-center text-slate-300 hover:text-amber-400 hover:bg-white/[0.06] transition-colors"
+                    aria-label="Google Scholar"
+                  >
+                    <ScholarIcon size={16} />
+                  </a>
+                </Tooltip>
 
-                <a
-                  href={personalInfo.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-lg flex items-center justify-center text-slate-300 hover:text-white hover:bg-white/[0.06] transition-colors"
-                  aria-label="GitHub"
-                  title="GitHub Profile"
-                >
-                  <GithubIcon size={16} />
-                </a>
+                <Tooltip content="GitHub Profile (@itzabd)" position="top">
+                  <a
+                    href={personalInfo.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-9 h-9 rounded-lg flex items-center justify-center text-slate-300 hover:text-white hover:bg-white/[0.06] transition-colors"
+                    aria-label="GitHub"
+                  >
+                    <GithubIcon size={16} />
+                  </a>
+                </Tooltip>
 
-                <a
-                  href={personalInfo.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-lg flex items-center justify-center text-slate-300 hover:text-white hover:bg-white/[0.06] transition-colors"
-                  aria-label="LinkedIn"
-                  title="LinkedIn Profile"
-                >
-                  <LinkedinIcon size={16} />
-                </a>
+                <Tooltip content="LinkedIn Profile" position="top">
+                  <a
+                    href={personalInfo.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-9 h-9 rounded-lg flex items-center justify-center text-slate-300 hover:text-white hover:bg-white/[0.06] transition-colors"
+                    aria-label="LinkedIn"
+                  >
+                    <LinkedinIcon size={16} />
+                  </a>
+                </Tooltip>
 
-                <a
-                  href={personalInfo.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-lg flex items-center justify-center text-slate-300 hover:text-pink-400 hover:bg-white/[0.06] transition-colors"
-                  aria-label="Instagram"
-                  title="Instagram Profile"
-                >
-                  <InstagramIcon size={16} />
-                </a>
+                <Tooltip content="Instagram (@itz_abd_)" position="top">
+                  <a
+                    href={personalInfo.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-9 h-9 rounded-lg flex items-center justify-center text-slate-300 hover:text-pink-400 hover:bg-white/[0.06] transition-colors"
+                    aria-label="Instagram"
+                  >
+                    <InstagramIcon size={16} />
+                  </a>
+                </Tooltip>
 
-                <a
-                  href={`mailto:${personalInfo.email}`}
-                  className="w-9 h-9 rounded-lg flex items-center justify-center text-slate-300 hover:text-white hover:bg-white/[0.06] transition-colors"
-                  aria-label="Email"
-                  title="Direct Email"
-                >
-                  <Mail size={16} />
-                </a>
+                <Tooltip content="Send Email" position="top">
+                  <a
+                    href={`mailto:${personalInfo.email}`}
+                    className="w-9 h-9 rounded-lg flex items-center justify-center text-slate-300 hover:text-white hover:bg-white/[0.06] transition-colors"
+                    aria-label="Email"
+                  >
+                    <Mail size={16} />
+                  </a>
+                </Tooltip>
               </div>
             </motion.div>
 

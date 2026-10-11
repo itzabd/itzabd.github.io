@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { GraduationCap, MapPin, CheckCircle2, Mail, Users } from "lucide-react";
-import { education, academicReferences } from "@/lib/data";
+import { education, references } from "@/lib/data";
 import { ease } from "@/lib/motion";
 
 export default function EducationSection() {
@@ -85,51 +85,94 @@ export default function EducationSection() {
         ))}
       </div>
 
-      {/* Academic References */}
+      {/* Academic & Professional References */}
       <div className="mt-16 pt-10 border-t border-white/[0.08]">
         <div className="flex items-center gap-2 mb-2">
           <Users size={16} className="text-teal-400" />
           <h3 className="text-xl font-bold text-white font-['Space_Grotesk']">
-            Academic References & Faculty Mentors
+            Academic & Professional References
           </h3>
         </div>
         <p className="text-xs sm:text-sm text-slate-400 mb-6">
-          Faculty references from Independent University, Bangladesh who supervise and collaborate on my research and coursework.
+          Faculty mentors and senior engineering leaders who oversee and vouch for my research rigor and software architecture capabilities.
         </p>
 
         <div className="grid sm:grid-cols-2 gap-4">
-          {academicReferences.map((ref, idx) => (
+          {references.map((ref, idx) => (
             <motion.div
               key={ref.name}
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.08, ease: ease.out }}
-              className="surface-card p-5 flex flex-col justify-between"
+              className="surface-card p-5 flex flex-col justify-between group hover:border-white/20 transition-all"
             >
               <div>
-                <h4 className="text-base font-bold text-white font-['Space_Grotesk']">
-                  {ref.name}
-                </h4>
-                <p className="text-xs font-mono text-teal-300 font-medium mt-0.5">
+                <div className="flex items-start justify-between gap-2 mb-1.5">
+                  <h4 className="text-base font-bold text-white font-['Space_Grotesk'] group-hover:text-amber-200 transition-colors">
+                    {ref.name}
+                  </h4>
+                  <span
+                    className={`text-[10px] font-mono px-2 py-0.5 rounded border ${
+                      ref.type === "academic"
+                        ? "bg-teal-500/10 text-teal-300 border-teal-500/20"
+                        : "bg-indigo-500/10 text-indigo-300 border-indigo-500/20"
+                    }`}
+                  >
+                    {ref.badge}
+                  </span>
+                </div>
+
+                <p className="text-xs font-mono text-amber-300 font-medium">
                   {ref.role}
                 </p>
-                <p className="text-xs text-slate-300 mt-2 leading-relaxed">
-                  {ref.department}
+
+                {ref.department && (
+                  <p className="text-xs text-slate-300 mt-2 leading-relaxed">
+                    {ref.department}
+                  </p>
+                )}
+
+                <p className="text-[11px] text-slate-400 mt-0.5">
+                  {ref.school ? `${ref.school} · ` : ""}
+                  <strong className="text-slate-300 font-medium">{ref.institution}</strong>
                 </p>
-                <p className="text-[11px] text-slate-400">
-                  {ref.school} · {ref.institution}
-                </p>
+
+                {ref.address && (
+                  <p className="text-[11px] text-slate-500 mt-0.5 font-mono">
+                    {ref.address}
+                  </p>
+                )}
               </div>
 
-              <div className="mt-4 pt-3 border-t border-white/[0.06] flex items-center justify-between">
+              <div className="mt-4 pt-3 border-t border-white/[0.06] flex flex-wrap items-center justify-between gap-2 text-xs">
                 <a
                   href={`mailto:${ref.email}`}
-                  className="inline-flex items-center gap-1.5 text-xs text-amber-300 hover:text-amber-200 transition-colors font-mono"
+                  className="inline-flex items-center gap-1.5 text-slate-300 hover:text-amber-300 transition-colors font-mono"
                 >
-                  <Mail size={13} />
+                  <Mail size={13} className="text-teal-400" />
                   <span>{ref.email}</span>
                 </a>
+
+                {ref.phone && (
+                  <a
+                    href={`tel:${ref.phone}`}
+                    className="inline-flex items-center gap-1.5 text-slate-400 hover:text-white transition-colors font-mono text-[11px]"
+                  >
+                    <span>{ref.phone}</span>
+                  </a>
+                )}
+
+                {ref.website && (
+                  <a
+                    href={ref.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-[11px] text-indigo-300 hover:text-indigo-200 transition-colors font-mono"
+                  >
+                    <span>erp.com.bd</span>
+                  </a>
+                )}
               </div>
             </motion.div>
           ))}
