@@ -84,7 +84,7 @@ export default function HeroSection() {
                 <strong className="text-white font-semibold">
                   4 papers (2 Published at Springer LNCS & IEEE, 2 Accepted)
                 </strong>
-                . Investigating trustworthy ML for clinical healthcare & computer vision, while engineering scalable full-stack production platforms.
+                . Driven by deep curiosity and an eagerness to continuously learn—investigating trustworthy ML for clinical healthcare & computer vision while engineering scalable full-stack systems.
               </p>
             </motion.div>
 

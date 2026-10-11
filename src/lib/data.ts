@@ -13,7 +13,7 @@ export const personalInfo = {
     "Full-Stack Production Engineer",
     "Teaching Assistant & Mentor",
   ],
-  bio: "Final-year Computer Science student at Independent University, Bangladesh with a CGPA of 3.64. Research Assistant and Teaching Assistant with published papers at HCII 2026 (Springer LNCS) and IEEE. Aspiring to pursue a Master's in Computer Science / AI while building production AI and civic tech platforms.",
+  bio: "Final-year Computer Science student at Independent University, Bangladesh with a CGPA of 3.64. An eager learner and researcher with published papers at HCII 2026 (Springer LNCS) and IEEE. Driven to pursue graduate studies in Computer Science / AI while building production AI and civic tech platforms.",
   location: "Dhaka, Bangladesh",
   email: "abdullahhossien0@gmail.com",
   phone: "+880-1628658775",
