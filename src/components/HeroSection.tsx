@@ -80,11 +80,7 @@ export default function HeroSection() {
             {/* Bio Summary */}
             <motion.div variants={itemVariants} className="mb-7 max-w-xl">
               <p className="text-sm sm:text-base leading-relaxed text-slate-300/90">
-                Undergraduate Research Assistant & Teaching Assistant with{" "}
-                <strong className="text-white font-semibold">
-                  4 papers (2 Published at Springer LNCS & IEEE, 2 Accepted)
-                </strong>
-                . Driven by deep curiosity and an eagerness to continuously learn—investigating trustworthy ML for clinical healthcare & computer vision while engineering scalable full-stack systems.
+                Undergraduate Research Assistant & Teaching Assistant driven by deep curiosity and an eagerness to continuously learn. Investigating trustworthy ML for clinical healthcare & computer vision, while engineering scalable full-stack production platforms.
               </p>
             </motion.div>
 
@@ -270,13 +266,6 @@ export default function HeroSection() {
                       </div>
                       <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">
                         2022–2026
-                      </span>
-                    </div>
-
-                    <div className="p-2.5 rounded-xl bg-black/60 backdrop-blur-md border border-white/10 flex items-center gap-2 text-slate-300 text-xs">
-                      <Sparkles size={14} className="text-teal-400 shrink-0" />
-                      <span className="text-[11px] leading-tight">
-                        Springer LNCS · IEEE · CCE & ICSIE 2026
                       </span>
                     </div>
                   </div>
