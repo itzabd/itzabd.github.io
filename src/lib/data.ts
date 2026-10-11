@@ -11,7 +11,7 @@ export const personalInfo = {
     "Published AI Researcher",
     "Teaching & Mentoring",
   ],
-  bio: "Final-year Computer Science student at Independent University, Bangladesh with a CGPA of 3.66. Research Assistant and Teaching Assistant with published papers at HCII 2026 (Springer) and IEEE. Building AI-powered platforms in healthcare, neurotechnology, and civic tech — bridging research and real-world impact.",
+  bio: "Final-year Computer Science student at Independent University, Bangladesh with a CGPA of 3.64. Research Assistant and Teaching Assistant with published papers at HCII 2026 (Springer) and IEEE. Building AI-powered platforms in healthcare, neurotechnology, and civic tech — bridging research and real-world impact.",
   location: "Dhaka, Bangladesh",
   email: "abdullahhossien0@gmail.com",
   phone: "+880-1628658775",
@@ -311,7 +311,7 @@ export const education = [
     degree: "Bachelor of Science in Computer Science",
     institution: "Independent University, Bangladesh",
     period: "2022 – Expected Dec 2026",
-    cgpa: "3.66",
+    cgpa: "3.64",
     status: "In Progress",
     highlights: [
       "Database Management Systems",
@@ -381,7 +381,7 @@ export const researchAreas = [
 
 export const achievements = [
   { value: "2", label: "Published Papers", icon: "BookOpen", color: "text-blue-400" },
-  { value: "3.66", label: "CGPA", icon: "GraduationCap", color: "text-green-400" },
+  { value: "3.64", label: "CGPA", icon: "GraduationCap", color: "text-green-400" },
   { value: "4+", label: "Featured Projects", icon: "FolderGit2", color: "text-purple-400" },
   { value: "FIDE", label: "Chess Rating", icon: "Trophy", color: "text-yellow-400" },
   { value: "100+", label: "Students Taught", icon: "Layers", color: "text-cyan-400" },
