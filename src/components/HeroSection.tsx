@@ -55,7 +55,7 @@ export default function HeroSection() {
             <motion.div variants={itemVariants} className="mb-4">
               <div className="availability-pill">
                 <span className="availability-dot" />
-                <span>Open for Master&apos;s Admissions (Fall &apos;26/Spring &apos;27) & ML Roles</span>
+                <span>{personalInfo.availability}</span>
               </div>
             </motion.div>
 

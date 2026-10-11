@@ -22,7 +22,7 @@ export const personalInfo = {
   scholar: "https://scholar.google.com/citations?user=x3nL2q4AAAAJ",
   instagram: "https://www.instagram.com/itz_abd_",
   portfolio: "https://itzabd.github.io",
-  availability: "Open to Master's Programs & ML Roles",
+  availability: "Open to Research & Engineering Opportunities",
   resumeUrl: "/resume.pdf",
 };
 
