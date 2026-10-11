@@ -1,46 +1,64 @@
 "use client";
 
-import { Mail } from "lucide-react";
+import { Mail, ArrowUp } from "lucide-react";
 import { LinkedinIcon, GithubIcon } from "@/components/icons";
 import { personalInfo } from "@/lib/data";
 
 export default function Footer() {
-  return (
-    <footer className="w-full mt-20 py-8 px-4 border-t border-white/10 bg-white/5 backdrop-blur-md">
-      <div className="max-w-6xl mx-auto flex flex-col justify-center items-center gap-6">
-        {/* Left: Copyright */}
-        <p className="text-sm text-gray-400">
-          © {new Date().getFullYear()} Abdullah Hossien. All rights reserved.
-        </p>
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
-        {/* Right: Social icons */}
-        <div className="flex gap-4">
+  return (
+    <footer className="w-full mt-24 py-10 px-4 border-t border-white/[0.08] bg-black/40 backdrop-blur-xl">
+      <div className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-6">
+        {/* Left: Academic Copyright */}
+        <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+          <p className="text-xs sm:text-sm text-slate-300 font-medium">
+            © {new Date().getFullYear()} {personalInfo.name}
+          </p>
+          <p className="text-[11px] text-slate-500 font-mono mt-0.5">
+            B.Sc. in Computer Science · Independent University, Bangladesh
+          </p>
+        </div>
+
+        {/* Center: Social icons */}
+        <div className="flex items-center gap-4">
           <a
             href={personalInfo.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-400 hover:text-white transition-colors"
+            className="text-slate-400 hover:text-white transition-colors"
             aria-label="GitHub"
           >
-            <GithubIcon size={18} />
+            <GithubIcon size={17} />
           </a>
           <a
             href={personalInfo.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-400 hover:text-white transition-colors"
+            className="text-slate-400 hover:text-white transition-colors"
             aria-label="LinkedIn"
           >
-            <LinkedinIcon size={18} />
+            <LinkedinIcon size={17} />
           </a>
           <a
             href={`mailto:${personalInfo.email}`}
-            className="text-gray-400 hover:text-white transition-colors"
+            className="text-slate-400 hover:text-white transition-colors"
             aria-label="Email"
           >
-            <Mail size={18} />
+            <Mail size={17} />
           </a>
         </div>
+
+        {/* Right: Back to top */}
+        <button
+          onClick={scrollToTop}
+          className="flex items-center gap-1.5 text-xs font-mono text-slate-400 hover:text-white transition-colors cursor-pointer"
+        >
+          <span>Top of page</span>
+          <ArrowUp size={13} />
+        </button>
       </div>
     </footer>
   );

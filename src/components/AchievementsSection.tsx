@@ -1,83 +1,72 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { achievements } from "@/lib/data";
-
-const fadeInUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } },
-};
+import { Award, CheckCircle2, Sparkles, Trophy } from "lucide-react";
+import { ease } from "@/lib/motion";
 
 const recognitionItems = [
-  "Merit-based Undergraduate Scholarship — Independent University, Bangladesh",
-  "Dean's Merit List recognition",
-  "International FIDE Rapid Chess Rating",
-  "Volunteer — Independence Day Chess Competition 2024 (IUB)",
-  "Event Coordinator — July Memorial FIDE Chess Championship 2025 (IUB)"
+  {
+    title: "Merit-Based Undergraduate Scholarship",
+    subtitle: "Independent University, Bangladesh",
+    desc: "Awarded for exceptional academic performance throughout undergraduate semesters.",
+  },
+  {
+    title: "Dean's Honor List Recognition",
+    subtitle: "School of Engineering, Technology & Sciences (SETS)",
+    desc: "Recognized multiple semesters for maintaining top percentile cumulative GPA.",
+  },
+  {
+    title: "International FIDE Rapid Chess Rating",
+    subtitle: "Fédération Internationale des Échecs (FIDE)",
+    desc: "Official competitive chess rating adhering to international tournament regulations.",
+  },
+  {
+    title: "Event Coordinator — FIDE July Memorial Championship",
+    subtitle: "IUB Chess Club",
+    desc: "Directing tournament operations, player registration, and arbiter standards.",
+  },
 ];
 
 export default function AchievementsSection() {
   return (
-    <section id="achievements" className="py-20 px-4 max-w-6xl mx-auto relative z-10">
-      {/* Header */}
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={fadeInUp}
-        className="text-center mb-12"
-      >
-        <h2 className="text-3xl font-bold text-white" style={{ fontFamily: "'Outfit', 'Inter', sans-serif" }}>
-          Key <span className="gradient-text">Achievements</span>
+    <section id="honors" className="py-20 px-4 max-w-5xl mx-auto relative z-10">
+      <div className="text-center max-w-2xl mx-auto mb-12">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-300 text-xs font-semibold tracking-wider uppercase mb-3">
+          <Trophy size={13} />
+          <span>Recognition</span>
+        </div>
+        <h2 className="text-3xl font-extrabold text-white tracking-tight font-['Space_Grotesk']">
+          Honors & Academic Distinctions
         </h2>
-      </motion.div>
+      </div>
 
-      {/* Stats Grid */}
-      <div className="flex flex-wrap justify-center gap-8">
-        {achievements.map((ach, index) => (
+      <div className="grid sm:grid-cols-2 gap-4">
+        {recognitionItems.map((item, idx) => (
           <motion.div
-            key={ach.label}
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            key={item.title}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.08 }}
-            className="text-center min-w-[120px]"
+            transition={{ duration: 0.4, delay: idx * 0.07, ease: ease.out }}
+            className="surface-card p-5 flex items-start gap-3.5 group hover:border-amber-400/30 transition-all"
           >
-            <span
-              className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent block"
-              style={{ fontFamily: "'Outfit', 'Inter', sans-serif" }}
-            >
-              {ach.value}
-            </span>
-            <span className="text-sm text-gray-400 mt-1 block">
-              {ach.label}
-            </span>
+            <div className="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 shrink-0 mt-0.5 group-hover:bg-amber-500/20 transition-colors">
+              <Award size={18} />
+            </div>
+            <div>
+              <h3 className="text-sm font-bold text-white group-hover:text-amber-200 transition-colors font-['Space_Grotesk']">
+                {item.title}
+              </h3>
+              <p className="text-[11px] font-mono text-teal-300 mt-0.5">
+                {item.subtitle}
+              </p>
+              <p className="text-xs text-slate-300 mt-1 leading-relaxed">
+                {item.desc}
+              </p>
+            </div>
           </motion.div>
         ))}
       </div>
-
-      {/* Recognition panel */}
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={fadeInUp}
-        className="glass p-6 rounded-2xl mt-12 max-w-3xl mx-auto relative overflow-hidden"
-      >
-        <div className="card-accent-bar" />
-        <h3 className="text-lg font-bold text-white mb-4" style={{ fontFamily: "'Outfit', 'Inter', sans-serif" }}>
-          Honors & Extracurricular Roles
-        </h3>
-        
-        <div className="divide-y divide-white/5">
-          {recognitionItems.map((item, i) => (
-            <div key={i} className="flex items-center gap-3 text-gray-300 py-3 last:pb-0 first:pt-0">
-              <span className="w-2 h-2 rounded-full bg-violet-400 shrink-0" />
-              <span className="text-sm leading-relaxed">{item}</span>
-            </div>
-          ))}
-        </div>
-      </motion.div>
     </section>
   );
 }

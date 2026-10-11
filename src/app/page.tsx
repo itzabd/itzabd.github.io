@@ -3,28 +3,30 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
+import JourneySection from "@/components/JourneySection";
+import ResearchSection from "@/components/ResearchSection";
+import ProjectsSection from "@/components/ProjectsSection";
 import ExperienceSection from "@/components/ExperienceSection";
 import EducationSection from "@/components/EducationSection";
-import SkillsSection from "@/components/SkillsSection";
-import ProjectsSection from "@/components/ProjectsSection";
-import ResearchSection from "@/components/ResearchSection";
 import AchievementsSection from "@/components/AchievementsSection";
+import SkillsSection from "@/components/SkillsSection";
 import GitHubSection from "@/components/GitHubSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen overflow-x-hidden" style={{ background: "transparent" }}>
+    <main className="relative min-h-screen overflow-x-hidden">
       <Navbar />
       <HeroSection />
       <AboutSection />
+      <JourneySection />
+      <ResearchSection />
+      <ProjectsSection />
       <ExperienceSection />
       <EducationSection />
-      <SkillsSection />
-      <ProjectsSection />
-      <ResearchSection />
       <AchievementsSection />
+      <SkillsSection />
       <GitHubSection />
       <ContactSection />
       <Footer />

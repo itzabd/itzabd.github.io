@@ -1,58 +1,61 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Briefcase, Award, GraduationCap, CheckCircle2 } from "lucide-react";
 import { experience } from "@/lib/data";
-
-const fadeInUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } },
-};
+import { ease } from "@/lib/motion";
 
 export default function ExperienceSection() {
   return (
     <section id="experience" className="py-20 px-4 max-w-4xl mx-auto relative z-10">
       {/* Header */}
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={fadeInUp}
-        className="text-center mb-12"
-      >
-        <h2 className="text-3xl font-bold text-white" style={{ fontFamily: "'Outfit', 'Inter', sans-serif" }}>
-          Work <span className="gradient-text">Experience</span>
+      <div className="text-center max-w-2xl mx-auto mb-14">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-xs font-semibold tracking-wider uppercase mb-3">
+          <Briefcase size={13} />
+          <span>Academic & Campus Roles</span>
+        </div>
+        <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-['Space_Grotesk']">
+          Research & Teaching Experience
         </h2>
-      </motion.div>
+        <p className="text-slate-400 text-sm sm:text-base mt-2">
+          Hands-on faculty research, undergraduate course mentorship, and campus leadership.
+        </p>
+      </div>
 
       {/* Timeline */}
-      <div className="relative pl-8 border-l-2 border-violet-500/30 space-y-8 ml-4">
+      <div className="relative pl-6 md:pl-8 border-l border-white/10 space-y-7 ml-3 md:ml-4">
         {experience.map((exp, index) => (
           <motion.div
             key={exp.role + index}
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: -16 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="glass p-6 rounded-2xl relative"
+            transition={{ duration: 0.45, delay: index * 0.08, ease: ease.out }}
+            className="surface-card p-6 md:p-7 relative group"
           >
             {/* Timeline node dot */}
-            <div className="absolute -left-[41px] top-7 w-4 h-4 rounded-full bg-violet-500 timeline-dot-glow" />
+            <div className="absolute -left-[31px] md:-left-[39px] top-6 w-3.5 h-3.5 rounded-full bg-indigo-500 border-2 border-slate-900 shadow-md group-hover:bg-amber-400 transition-colors" />
 
-            {/* Content */}
-            <span className="text-sm text-violet-300 font-semibold block mb-1">
-              {exp.period}
-            </span>
-            <h3 className="text-xl font-bold text-white" style={{ fontFamily: "'Outfit', 'Inter', sans-serif" }}>
+            <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+              <span className="text-xs font-mono font-semibold text-amber-300">
+                {exp.period}
+              </span>
+              <span className="badge-tag badge-subtle !text-[10px]">
+                {exp.type}
+              </span>
+            </div>
+
+            <h3 className="text-lg md:text-xl font-bold text-white font-['Space_Grotesk'] group-hover:text-amber-200 transition-colors">
               {exp.role}
             </h3>
-            <h4 className="text-cyan-300 font-medium text-sm mt-0.5 mb-3">
-              {exp.company} • <span className="text-gray-400 text-xs">{exp.type}</span>
+            <h4 className="text-sm font-medium text-slate-300 mt-0.5 mb-4">
+              {exp.company}
             </h4>
             
-            <ul className="space-y-2 mt-2">
+            <ul className="space-y-2 mt-3 pt-3 border-t border-white/[0.06]">
               {exp.highlights.map((highlight, hIndex) => (
-                <li key={hIndex} className="text-gray-300 text-sm flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-2 shrink-0" />
+                <li key={hIndex} className="text-slate-300 text-xs md:text-sm flex items-start gap-2.5 leading-relaxed">
+                  <CheckCircle2 size={15} className="text-teal-400 mt-0.5 shrink-0" />
                   <span>{highlight}</span>
                 </li>
               ))}

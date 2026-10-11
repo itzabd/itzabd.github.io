@@ -2,125 +2,145 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink, ChevronDown, ChevronUp } from "lucide-react";
+import { ExternalLink, Code2, Sparkles, Layers } from "lucide-react";
 import { GithubIcon } from "@/components/icons";
 import { projects } from "@/lib/data";
+import { ease } from "@/lib/motion";
 
-const fadeInUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } },
-};
+const categories = ["All", "AI/ML", "Healthcare", "Web App"] as const;
 
 export default function ProjectsSection() {
-  const [showAll, setShowAll] = useState(false);
+  const [activeFilter, setActiveFilter] = useState<string>("All");
 
-  const INITIAL_COUNT = 3;
-  const displayed = showAll ? projects : projects.slice(0, INITIAL_COUNT);
-  const remaining = projects.length - INITIAL_COUNT;
+  const filteredProjects = projects.filter((p) => {
+    if (activeFilter === "All") return true;
+    return p.category === activeFilter;
+  });
 
   return (
-    <section id="projects" className="py-20 px-4 max-w-6xl mx-auto relative z-10">
+    <section id="projects" className="py-24 px-4 max-w-6xl mx-auto relative z-10">
       {/* Header */}
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={fadeInUp}
-        className="text-center mb-12"
-      >
-        <h2 className="text-3xl font-bold text-white" style={{ fontFamily: "'Outfit', 'Inter', sans-serif" }}>
-          Featured <span className="gradient-text">Projects</span>
+      <div className="text-center max-w-3xl mx-auto mb-12">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-300 text-xs font-semibold tracking-wider uppercase mb-3">
+          <Code2 size={13} />
+          <span>Applied Engineering</span>
+        </div>
+        <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-['Space_Grotesk']">
+          Featured Engineering & AI Platforms
         </h2>
-      </motion.div>
+        <p className="text-slate-400 text-sm sm:text-base mt-2">
+          From machine learning pipelines to high-reliability production web platforms serving real end-users.
+        </p>
+
+        {/* Filter Pills */}
+        <div className="flex flex-wrap justify-center gap-2 mt-8">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveFilter(cat)}
+              className={`px-4 py-1.5 rounded-full text-xs font-medium transition-all ${
+                activeFilter === cat
+                  ? "bg-indigo-600 text-white shadow-md shadow-indigo-600/30"
+                  : "bg-white/[0.04] text-slate-400 hover:text-white hover:bg-white/[0.08]"
+              }`}
+            >
+              {cat === "All" ? "All Systems" : cat}
+            </button>
+          ))}
+        </div>
+      </div>
 
       {/* Grid */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <motion.div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         <AnimatePresence mode="popLayout">
-          {displayed.map((project, index) => (
+          {filteredProjects.map((project) => (
             <motion.div
               key={project.id}
               layout
-              initial={{ opacity: 0, scale: 0.95 }}
+              initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.4 }}
-              className="glass rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform duration-300 flex flex-col group relative"
+              exit={{ opacity: 0, scale: 0.96 }}
+              transition={{ duration: 0.35, ease: ease.out }}
+              className="surface-card rounded-2xl overflow-hidden flex flex-col group border-white/[0.08] hover:border-teal-500/40 transition-all"
             >
-              {/* Image Container with Gradient */}
-              <div className="h-48 bg-gradient-to-br from-violet-500/20 to-cyan-500/20 relative flex items-center justify-center overflow-hidden">
+              {/* Image / Header Graphic */}
+              <div className="h-44 bg-slate-900/80 relative flex items-center justify-center overflow-hidden border-b border-white/[0.06]">
                 {project.image ? (
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 ) : (
-                  <>
-                    {/* Backdrop effect */}
-                    <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300" />
-                    
-                    {/* Huge first letter in the background */}
-                    <span className="text-9xl font-black text-white/5 select-none pointer-events-none group-hover:scale-110 transition-transform duration-500">
-                      {project.title.charAt(0)}
+                  <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-indigo-950/40 to-slate-900 relative">
+                    <span className="text-7xl font-extrabold text-white/5 font-mono select-none">
+                      {project.title.slice(0, 2).toUpperCase()}
                     </span>
-                  </>
+                  </div>
                 )}
-                
+
                 {/* Category Badge overlay */}
-                <span className="absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-semibold glass-sm text-cyan-300">
+                <span className="absolute top-3.5 right-3.5 badge-tag badge-subtle !text-[10px] backdrop-blur-md">
                   {project.category}
                 </span>
+
+                {project.badge && (
+                  <span className="absolute top-3.5 left-3.5 badge-tag badge-academic !text-[10px] backdrop-blur-md">
+                    {project.badge}
+                  </span>
+                )}
               </div>
 
-              {/* Content */}
-              <div className="p-6 space-y-3 flex-1 flex flex-col justify-between">
-                <div className="space-y-2">
-                  <h3 className="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors" style={{ fontFamily: "'Outfit', 'Inter', sans-serif" }}>
+              {/* Card Body */}
+              <div className="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 className="text-xl font-bold text-white group-hover:text-amber-200 transition-colors font-['Space_Grotesk']">
                     {project.title}
                   </h3>
-                  <p className="text-xs text-gray-400 font-medium">
+                  <p className="text-xs font-mono text-teal-300 mt-0.5 mb-2.5">
                     {project.subtitle}
                   </p>
-                  <p className="text-gray-300 text-sm leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
                     {project.description}
                   </p>
                 </div>
 
-                <div className="space-y-4 pt-3 mt-auto">
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2">
+                <div className="pt-4 border-t border-white/[0.06] mt-auto">
+                  {/* Tech stack tags */}
+                  <div className="flex flex-wrap gap-1.5 mb-4">
                     {project.tech.map((t) => (
-                      <span key={t} className="px-3 py-1 glass-sm rounded-full text-xs text-violet-300">
+                      <span
+                        key={t}
+                        className="px-2 py-0.5 rounded text-[11px] font-mono bg-white/[0.04] border border-white/[0.06] text-slate-300"
+                      >
                         {t}
                       </span>
                     ))}
                   </div>
 
                   {/* Links */}
-                  <div className="flex gap-4">
+                  <div className="flex items-center gap-2">
                     <a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="glass-sm px-4 py-2 rounded-lg text-sm hover:border-violet-500 flex items-center gap-2 justify-center flex-1 text-gray-300 hover:text-white"
+                      className="btn-secondary !py-2 !px-3 !text-xs flex-1 justify-center"
+                      aria-label="View Source Code on GitHub"
                     >
                       <GithubIcon size={14} />
-                      Source
+                      <span>Code</span>
                     </a>
-                    {project.live ? (
+
+                    {project.live && (
                       <a
                         href={project.live}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="glass-sm px-4 py-2 rounded-lg text-sm hover:border-violet-500 flex items-center gap-2 justify-center flex-1 text-cyan-300 hover:text-cyan-200"
+                        className="btn-primary !py-2 !px-3 !text-xs flex-1 justify-center"
                       >
-                        <ExternalLink size={14} />
-                        Demo
+                        <span>Live Demo</span>
+                        <ExternalLink size={13} />
                       </a>
-                    ) : (
-                      <span className="glass-sm px-4 py-2 rounded-lg text-sm flex items-center gap-2 justify-center flex-1 text-gray-500 cursor-not-allowed border-white/5 bg-white/5">
-                        Private
-                      </span>
                     )}
                   </div>
                 </div>
@@ -128,27 +148,7 @@ export default function ProjectsSection() {
             </motion.div>
           ))}
         </AnimatePresence>
-      </div>
-
-      {/* Show more/less button */}
-      {remaining > 0 && (
-        <div className="flex justify-center mt-10">
-          <button
-            onClick={() => setShowAll(!showAll)}
-            className="btn-ghost flex items-center gap-2 text-sm font-semibold"
-          >
-            {showAll ? (
-              <>
-                Show Less <ChevronUp size={16} />
-              </>
-            ) : (
-              <>
-                View {remaining} More Projects <ChevronDown size={16} />
-              </>
-            )}
-          </button>
-        </div>
-      )}
+      </motion.div>
     </section>
   );
 }

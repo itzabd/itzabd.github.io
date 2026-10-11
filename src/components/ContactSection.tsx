@@ -2,14 +2,10 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, MapPin, Send, CheckCircle, Loader2, Phone } from "lucide-react";
+import { Mail, MapPin, Send, CheckCircle, Loader2, Phone, Sparkles } from "lucide-react";
 import { LinkedinIcon, GithubIcon } from "@/components/icons";
 import { personalInfo } from "@/lib/data";
-
-const fadeInUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } },
-};
+import { ease } from "@/lib/motion";
 
 type FormState = "idle" | "loading" | "success" | "error";
 
@@ -32,7 +28,7 @@ export default function ContactSection() {
           name: form.name,
           email: form.email,
           message: form.message,
-          subject: `Portfolio Contact: ${form.name}`,
+          subject: `Academic/Job Inquiry from Portfolio: ${form.name}`,
         }),
       });
 
@@ -41,129 +37,137 @@ export default function ContactSection() {
       if (response.ok && data.success) {
         setFormState("success");
         setForm({ name: "", email: "", message: "" });
-        setTimeout(() => setFormState("idle"), 4000);
+        setTimeout(() => setFormState("idle"), 5000);
       } else {
         throw new Error(data.message || "Failed to send message.");
       }
     } catch (error) {
       setFormState("error");
       setErrorMessage(error instanceof Error ? error.message : "Failed to send message.");
-      setTimeout(() => setFormState("idle"), 4000);
+      setTimeout(() => setFormState("idle"), 5000);
     }
   };
 
   return (
-    <section id="contact" className="py-20 px-4 max-w-6xl mx-auto relative z-10">
+    <section id="contact" className="py-24 px-4 max-w-5xl mx-auto relative z-10">
       {/* Header */}
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={fadeInUp}
-        className="text-center mb-12"
-      >
-        <h2 className="text-3xl font-bold text-white" style={{ fontFamily: "'Outfit', 'Inter', sans-serif" }}>
-          Get In <span className="gradient-text">Touch</span>
+      <div className="text-center max-w-2xl mx-auto mb-14">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-300 text-xs font-semibold tracking-wider uppercase mb-3">
+          <Mail size={13} />
+          <span>Get In Touch</span>
+        </div>
+        <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-['Space_Grotesk']">
+          Graduate Inquiries & Engineering Roles
         </h2>
-      </motion.div>
+        <p className="text-slate-400 text-sm sm:text-base mt-2">
+          Seeking prospective research advisors, Master&apos;s program queries, or engineering opportunities.
+        </p>
+      </div>
 
-      {/* Grid */}
-      <div className="grid lg:grid-cols-2 gap-8">
-        {/* Left Side: Info */}
+      <div className="grid lg:grid-cols-12 gap-8 items-start">
+        {/* Left Side: Contact Information */}
         <motion.div
-          initial="hidden"
-          whileInView="visible"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          variants={fadeInUp}
-          className="glass p-8 rounded-2xl space-y-6 relative overflow-hidden"
+          transition={{ duration: 0.45, ease: ease.out }}
+          className="lg:col-span-5 surface-card p-6 md:p-8 space-y-6"
         >
-          <div className="card-accent-bar" />
-          <h3 className="text-2xl font-bold text-white" style={{ fontFamily: "'Outfit', 'Inter', sans-serif" }}>
-            Collaboration & Inquiries
-          </h3>
-          <p className="text-gray-300 text-sm leading-relaxed">
-            Open to full-time roles, research collaborations, and exciting projects. Let&apos;s build something amazing together.
-          </p>
+          <div>
+            <h3 className="text-xl font-bold text-white font-['Space_Grotesk']">
+              Direct Channels
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-300 mt-1 leading-relaxed">
+              Feel free to reach out directly via email or connect on LinkedIn and GitHub.
+            </p>
+          </div>
 
           <div className="space-y-4">
-            <div className="flex items-center gap-4 text-gray-300 text-sm">
-              <div className="w-10 h-10 rounded-full glass flex items-center justify-center text-cyan-400 shrink-0">
-                <Mail size={18} />
+            <div className="flex items-center gap-3 text-xs sm:text-sm text-slate-300">
+              <div className="w-9 h-9 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-teal-300 shrink-0">
+                <Mail size={16} />
               </div>
-              <a href={`mailto:${personalInfo.email}`} className="hover:text-cyan-300 transition-colors">
+              <a
+                href={`mailto:${personalInfo.email}`}
+                className="hover:text-amber-300 transition-colors break-all"
+              >
                 {personalInfo.email}
               </a>
             </div>
 
-            <div className="flex items-center gap-4 text-gray-300 text-sm">
-              <div className="w-10 h-10 rounded-full glass flex items-center justify-center text-cyan-400 shrink-0">
-                <Phone size={18} />
+            <div className="flex items-center gap-3 text-xs sm:text-sm text-slate-300">
+              <div className="w-9 h-9 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-teal-300 shrink-0">
+                <Phone size={16} />
               </div>
               <span>{personalInfo.phone}</span>
             </div>
 
-            <div className="flex items-center gap-4 text-gray-300 text-sm">
-              <div className="w-10 h-10 rounded-full glass flex items-center justify-center text-cyan-400 shrink-0">
-                <MapPin size={18} />
+            <div className="flex items-center gap-3 text-xs sm:text-sm text-slate-300">
+              <div className="w-9 h-9 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-teal-300 shrink-0">
+                <MapPin size={16} />
               </div>
               <span>{personalInfo.location}</span>
             </div>
           </div>
 
-          {/* Social links */}
-          <div className="flex gap-4 mt-6">
-            <a
-              href={personalInfo.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-12 h-12 rounded-full glass flex items-center justify-center hover:border-violet-500 transition-all text-gray-300 hover:text-white"
-            >
-              <GithubIcon size={20} />
-            </a>
-            <a
-              href={personalInfo.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-12 h-12 rounded-full glass flex items-center justify-center hover:border-violet-500 transition-all text-gray-300 hover:text-white"
-            >
-              <LinkedinIcon size={20} />
-            </a>
+          {/* Social Profiles */}
+          <div className="pt-2">
+            <span className="text-[11px] font-mono uppercase tracking-wider text-slate-400 block mb-3">
+              Research & Social Profiles
+            </span>
+            <div className="flex gap-2.5">
+              <a
+                href={personalInfo.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-slate-300 hover:text-white hover:border-white/20 transition-all"
+                aria-label="GitHub"
+              >
+                <GithubIcon size={18} />
+              </a>
+              <a
+                href={personalInfo.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-slate-300 hover:text-white hover:border-white/20 transition-all"
+                aria-label="LinkedIn"
+              >
+                <LinkedinIcon size={18} />
+              </a>
+            </div>
           </div>
 
-          {/* Availability */}
-          <div className="pt-4">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/20 text-emerald-300 text-sm">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+          <div className="pt-2">
+            <div className="availability-pill">
+              <span className="availability-dot" />
               <span>{personalInfo.availability}</span>
             </div>
           </div>
         </motion.div>
 
-        {/* Right Side: Form */}
+        {/* Right Side: Message Form */}
         <motion.div
-          initial="hidden"
-          whileInView="visible"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          variants={fadeInUp}
-          className="glass p-8 rounded-2xl relative overflow-hidden"
+          transition={{ duration: 0.45, ease: ease.out, delay: 0.1 }}
+          className="lg:col-span-7 surface-card p-6 md:p-8"
         >
-          <div className="card-accent-bar" />
-          
           {formState === "success" ? (
-            <div className="flex flex-col items-center justify-center py-12 text-center space-y-4">
-              <CheckCircle size={56} className="text-emerald-400" />
-              <h4 className="text-xl font-bold text-white" style={{ fontFamily: "'Outfit', 'Inter', sans-serif" }}>
-                Message Sent!
+            <div className="flex flex-col items-center justify-center py-12 text-center space-y-3">
+              <CheckCircle size={48} className="text-teal-400" />
+              <h4 className="text-xl font-bold text-white font-['Space_Grotesk']">
+                Message Dispatched!
               </h4>
-              <p className="text-gray-300 text-sm">
-                Thank you for your message. I will get back to you shortly.
+              <p className="text-xs sm:text-sm text-slate-300 max-w-sm">
+                Thank you for getting in touch. I will review your message and reply via email promptly.
               </p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="space-y-1">
-                <label className="text-sm text-gray-300" htmlFor="name">
-                  Name
+              <div>
+                <label className="text-xs font-mono uppercase text-slate-400 block mb-1.5" htmlFor="name">
+                  Full Name / Institution
                 </label>
                 <input
                   id="name"
@@ -171,14 +175,14 @@ export default function ContactSection() {
                   required
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  placeholder="Your Name"
-                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-violet-500 focus:ring-2 focus:ring-violet-500/20 outline-none text-white transition"
+                  placeholder="e.g. Prof. Jane Doe or Recruiter Name"
+                  className="w-full px-4 py-2.5 rounded-xl bg-white/[0.03] border border-white/[0.08] text-white text-sm placeholder:text-slate-500 focus:border-indigo-400 focus:outline-none transition-all"
                 />
               </div>
 
-              <div className="space-y-1">
-                <label className="text-sm text-gray-300" htmlFor="email">
-                  Email
+              <div>
+                <label className="text-xs font-mono uppercase text-slate-400 block mb-1.5" htmlFor="email">
+                  Email Address
                 </label>
                 <input
                   id="email"
@@ -186,14 +190,14 @@ export default function ContactSection() {
                   required
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  placeholder="your.email@example.com"
-                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-violet-500 focus:ring-2 focus:ring-violet-500/20 outline-none text-white transition"
+                  placeholder="name@university.edu"
+                  className="w-full px-4 py-2.5 rounded-xl bg-white/[0.03] border border-white/[0.08] text-white text-sm placeholder:text-slate-500 focus:border-indigo-400 focus:outline-none transition-all"
                 />
               </div>
 
-              <div className="space-y-1">
-                <label className="text-sm text-gray-300" htmlFor="message">
-                  Message
+              <div>
+                <label className="text-xs font-mono uppercase text-slate-400 block mb-1.5" htmlFor="message">
+                  Inquiry / Opportunity Details
                 </label>
                 <textarea
                   id="message"
@@ -201,31 +205,31 @@ export default function ContactSection() {
                   rows={4}
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  placeholder="Hi Abdullah, I'd like to collaborate..."
-                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-violet-500 focus:ring-2 focus:ring-violet-500/20 outline-none text-white transition resize-none"
+                  placeholder="Graduate lab opportunities, research collaborations, or engineering role inquiries..."
+                  className="w-full px-4 py-2.5 rounded-xl bg-white/[0.03] border border-white/[0.08] text-white text-sm placeholder:text-slate-500 focus:border-indigo-400 focus:outline-none transition-all resize-none"
                 />
               </div>
 
               {formState === "error" && (
-                <p className="text-red-400 text-xs font-semibold">
-                  {errorMessage || "An error occurred. Please try again."}
+                <p className="text-xs text-rose-400">
+                  {errorMessage || "Submission failed. Please email me directly."}
                 </p>
               )}
 
               <button
                 type="submit"
                 disabled={formState === "loading"}
-                className="w-full glass px-6 py-3 rounded-xl border-violet-500 hover:shadow-glow transition font-semibold flex items-center justify-center gap-2 text-white bg-violet-600/20 hover:bg-violet-600/30"
+                className="btn-primary !w-full justify-center !py-3"
               >
                 {formState === "loading" ? (
                   <>
-                    <Loader2 size={16} className="animate-spin text-white" />
-                    <span>Sending...</span>
+                    <Loader2 size={16} className="animate-spin" />
+                    <span>Transmitting...</span>
                   </>
                 ) : (
                   <>
-                    <Send size={16} />
-                    <span>Send Message</span>
+                    <Send size={15} />
+                    <span>Send Inquiry</span>
                   </>
                 )}
               </button>

@@ -3,23 +3,26 @@ export const personalInfo = {
   displayName: "Abdullah Hossien",
   handle: "itzabd",
   title: "AI/ML Researcher & Full-Stack Developer",
+  targetAspiration: "Aspiring M.S. in Computer Science / AI & ML",
   degree: "BSc Computer Science, Independent University, Bangladesh",
+  cgpa: "3.64",
   taglines: [
-    "Building Intelligent Systems",
-    "ML for Healthcare Research",
-    "Full-Stack Development",
-    "Published AI Researcher",
-    "Teaching & Mentoring",
+    "Published AI/ML Researcher",
+    "Aspiring Master's Candidate",
+    "ML for Healthcare & Neurotechnology",
+    "Full-Stack Production Engineer",
+    "Teaching Assistant & Mentor",
   ],
-  bio: "Final-year Computer Science student at Independent University, Bangladesh with a CGPA of 3.64. Research Assistant and Teaching Assistant with published papers at HCII 2026 (Springer) and IEEE. Building AI-powered platforms in healthcare, neurotechnology, and civic tech — bridging research and real-world impact.",
+  bio: "Final-year Computer Science student at Independent University, Bangladesh with a CGPA of 3.64. Research Assistant and Teaching Assistant with published papers at HCII 2026 (Springer LNCS) and IEEE. Aspiring to pursue a Master's in Computer Science / AI while building production AI and civic tech platforms.",
   location: "Dhaka, Bangladesh",
   email: "abdullahhossien0@gmail.com",
   phone: "+880-1628658775",
   github: "https://github.com/itzabd",
   linkedin: "https://www.linkedin.com/in/abdullah-hossien-12349b225/",
+  scholar: "https://scholar.google.com/citations?user=itzabd",
   portfolio: "https://itzabd.github.io",
-  availability: "Open to Opportunities",
-  resumeUrl: "#",
+  availability: "Open to Master's Programs & ML Roles",
+  resumeUrl: "/resume.pdf",
 };
 
 export const skills = [
@@ -135,7 +138,7 @@ export const projects = [
     title: "GloHealth AI",
     subtitle: "AI-Powered Health Symptom Reporting System",
     description:
-      "Full-stack AI healthcare platform for disease prediction, geospatial disease analysis, and appointment management with explainable ML insights powered by XGBoost and Scikit-learn. Admin demo: abdulahad6411@gmail.com / abdulahad6411@gmail.com",
+      "Full-stack AI healthcare platform for disease prediction, geospatial epidemiology analysis, and appointment management with explainable ML insights powered by XGBoost and Scikit-learn.",
     tech: ["Python", "Flask", "Scikit-learn", "XGBoost", "Supabase", "PostgreSQL", "Bootstrap"],
     github: "https://github.com/itzabd/GloHealth_Ai",
     live: "https://glohealth-ai-fw71.onrender.com/",
@@ -227,46 +230,62 @@ export const publications = [
   {
     title: "Liver Data Governance Challenges for Mobile App-Based Liver Care in Bangladesh",
     venue: "HCII 2026, Springer LNCS 16747",
+    publisher: "Springer",
+    authors: "Md Abdullah Hossien Molla et al.",
     doi: "10.1007/978-3-032-30549-7_7",
     doiUrl: "https://doi.org/10.1007/978-3-032-30549-7_7",
     year: "2026",
     status: "Published",
     statusColor: "text-emerald-300 bg-emerald-500/20 border-emerald-500/30",
     icon: "BookOpen",
-    tags: ["Healthcare AI", "Mobile Health", "Data Governance"],
+    abstract:
+      "Investigated data governance and compliance hurdles in mobile digital health ecosystems for chronic liver care in Bangladesh. Formulated architectural recommendations for privacy-preserving telemetry and clinical record exchange.",
+    tags: ["Healthcare AI", "Mobile Health", "Data Governance", "Springer LNCS"],
   },
   {
     title: "Safety-Enhanced ML for Fetal Health Classification Using Cardiotocography Data",
     venue: "ICMLAS 2026, IEEE",
+    publisher: "IEEE",
+    authors: "Md Abdullah Hossien Molla et al.",
     doi: "10.1109/ICMLAS67792.2026.11483766",
     doiUrl: "https://doi.org/10.1109/ICMLAS67792.2026.11483766",
     year: "2026",
     status: "Published",
     statusColor: "text-blue-300 bg-blue-500/20 border-blue-500/30",
     icon: "HeartPulse",
-    tags: ["ML", "Fetal Health", "Cardiotocography", "Safety AI"],
+    abstract:
+      "Developed risk-calibrated machine learning models using cardiotocography biosignals for maternal-fetal triage, penalizing high-risk false negatives to safeguard clinical decision boundaries in resource-constrained clinics.",
+    tags: ["ML", "Fetal Health", "Cardiotocography", "Safety AI", "IEEE"],
   },
   {
     title: "Braille for All: A $70 AI-Powered Braille Tutoring Robot",
     venue: "CCE 2026",
+    publisher: "Conference Proceedings",
+    authors: "Md Abdullah Hossien Molla et al.",
     doi: null,
     doiUrl: null,
     year: "2026",
-    status: "Presented",
+    status: "Accepted & Presented",
     statusColor: "text-yellow-300 bg-yellow-500/20 border-yellow-500/30",
     icon: "Cpu",
+    abstract:
+      "Designed and prototyped an ultra-affordable ($70) tactile Braille tutoring robot integrated with speech synthesis and interactive verification, drastically reducing assistive learning barriers in developing nations.",
     tags: ["Robotics", "Assistive Tech", "AI Education", "Braille"],
   },
   {
     title: "Road Condition Detection on Bangladeshi Roads: A Benchmark Study of YOLO Architectures",
     venue: "ICSIE 2026",
+    publisher: "Conference Proceedings",
+    authors: "Md Abdullah Hossien Molla et al.",
     doi: null,
     doiUrl: null,
     year: "2026",
     status: "Accepted",
     statusColor: "text-yellow-300 bg-yellow-500/20 border-yellow-500/30",
     icon: "Car",
-    tags: ["Computer Vision", "YOLO", "Road Condition Detection", "Bangladesh"],
+    abstract:
+      "Benchmarked cutting-edge real-time object detection architectures (YOLOv8–YOLOv11) on high-density Bangladeshi road defect imagery, analyzing inference latency vs mAP on embedded edge hardware.",
+    tags: ["Computer Vision", "YOLO", "Road Condition Detection", "Edge ML"],
   },
 ];
 
@@ -380,10 +399,104 @@ export const researchAreas = [
 ];
 
 export const achievements = [
-  { value: "2", label: "Published Papers", icon: "BookOpen", color: "text-blue-400" },
+  { value: "4", label: "Papers (2 Pub, 2 Accepted)", icon: "BookOpen", color: "text-blue-400" },
   { value: "3.64", label: "CGPA", icon: "GraduationCap", color: "text-green-400" },
   { value: "4+", label: "Featured Projects", icon: "FolderGit2", color: "text-purple-400" },
   { value: "FIDE", label: "Chess Rating", icon: "Trophy", color: "text-yellow-400" },
   { value: "100+", label: "Students Taught", icon: "Layers", color: "text-cyan-400" },
   { value: "Merit", label: "Dean's List", icon: "Sparkles", color: "text-rose-400" },
+];
+
+export const journeyMilestones = [
+  {
+    id: "foundations",
+    period: "2018 – 2022",
+    badge: "Academic Roots",
+    title: "Foundations & Academic Discipline",
+    tagline: "SSC & HSC (GPA 5.00) → Enrolling in Computer Science at IUB",
+    description:
+      "Built a solid mathematical and analytical foundation at Ideal School & College and Govt. Science College, earning perfect GPA 5.00 in both SSC and HSC examinations. Entered Independent University, Bangladesh (IUB) with a clear ambition to explore algorithmic problem solving and software engineering.",
+    highlights: [
+      "SSC: GPA 5.00 (Ideal School and College, Dhaka)",
+      "HSC: GPA 5.00 (Govt. Science College, Tejgaon)",
+      "Commenced B.Sc. in Computer Science at IUB",
+    ],
+    category: "Education",
+  },
+  {
+    id: "systems-building",
+    period: "2022 – 2024",
+    badge: "Core Engineering",
+    title: "Core CS Systems & Applied Software",
+    tagline: "Object-Oriented Architecture & Relational Database Platforms",
+    description:
+      "Deepened foundational engineering principles through rigorous coursework and project implementations. Architected an OOP Food Court Management system in Java and developed DeshCare, a multi-role vaccination management database platform using PostgreSQL and Flask.",
+    highlights: [
+      "Built Java OOP Food Court Management platform",
+      "Designed DeshCare Vaccination DBMS with role-based workflows",
+      "Maintained consistent Dean's List academic standing",
+    ],
+    category: "Engineering",
+  },
+  {
+    id: "teaching-leadership",
+    period: "2024 – 2026",
+    badge: "Leadership & Pedagogy",
+    title: "Teaching, Mentoring & Campus Leadership",
+    tagline: "Teaching Assistant for 100+ CS Students & FIDE Chess Coordinator",
+    description:
+      "Appointed as an Undergraduate Teaching Assistant in the Department of CSE, mentoring 100+ students per semester in foundational programming, debugging, and lab assignments. Honed the communication and instructional skills valued in graduate research. Served as Event Coordinator for the IUB Chess Club, directing the July Memorial FIDE Chess Championship under international standards.",
+    highlights: [
+      "Mentored 100+ undergraduate CS students per semester",
+      "Coordinated international-standard FIDE chess championships",
+      "FIDE rated competitive chess player",
+    ],
+    category: "Leadership",
+  },
+  {
+    id: "research-breakthrough",
+    period: "2024 – 2026",
+    badge: "Scholarly Milestones",
+    title: "AI Research & Peer-Reviewed Publications",
+    tagline: "Research Assistantship → 2 Published (Springer & IEEE) + 2 Accepted",
+    description:
+      "Appointed faculty Research Assistant at IUB, conducting data preprocessing, statistical validation, and model design for clinical intelligence. Authored published research on liver data governance at HCII 2026 (Springer LNCS) and fetal health classification at IEEE ICMLAS 2026. Designed an affordable ($70) AI Braille tutoring robot (CCE 2026) and a road defect detection benchmark (ICSIE 2026).",
+    highlights: [
+      "HCII 2026, Springer LNCS 16747 (Published)",
+      "ICMLAS 2026, IEEE (Published)",
+      "CCE 2026 ($70 Braille Tutoring Robot Accepted)",
+      "ICSIE 2026 (YOLO Road Detection Accepted)",
+    ],
+    category: "Research",
+  },
+  {
+    id: "production-impact",
+    period: "2025 – 2026",
+    badge: "Production Shipping",
+    title: "Shipping Production Software for Real People",
+    tagline: "Civic Tech & E-Commerce: StreetVendor & Ababil's Attire",
+    description:
+      "Bridged academic research with practical software deployments. Built StreetVendor, a geospatial platform for urban vendor registration and QR-identification, and Ababil's Attire, a full-stack e-commerce engine featuring guest checkout, automated bKash reconciliation, and Telegram bot administration.",
+    highlights: [
+      "StreetVendor: Live civic tech with Leaflet geolocation",
+      "Ababil's Attire: Live boutique e-commerce with Supabase RLS",
+      "Production containerization and CI/CD on Render & Vercel",
+    ],
+    category: "Engineering",
+  },
+  {
+    id: "future-aspiration",
+    period: "Dec 2026 & Beyond",
+    badge: "Next Chapter",
+    title: "Graduation & Aspiring Master's Scholar",
+    tagline: "B.Sc. in Computer Science (CGPA 3.64) → Graduate Research in AI",
+    description:
+      "Graduating in December 2026 with a B.Sc. in Computer Science (CGPA 3.64). Actively preparing for graduate school admissions in Computer Science / Artificial Intelligence, aiming to advance reliable, explainable machine learning in healthcare and assistive technology, while welcoming high-impact ML engineering roles.",
+    highlights: [
+      "Target: Master's in Computer Science / AI & ML",
+      "Focus Areas: Clinical Healthcare ML, Neurotechnology & Safe AI",
+      "Seeking Graduate Research Opportunities & ML Positions",
+    ],
+    category: "Aspiration",
+  },
 ];

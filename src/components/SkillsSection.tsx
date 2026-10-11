@@ -8,14 +8,11 @@ import {
   Database,
   Wrench,
   Sparkles,
+  Layers,
   type LucideIcon,
 } from "lucide-react";
 import { skills } from "@/lib/data";
-
-const fadeInUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
-};
+import { ease } from "@/lib/motion";
 
 const iconMap: Record<string, LucideIcon> = {
   Code2,
@@ -30,71 +27,50 @@ export default function SkillsSection() {
   return (
     <section id="skills" className="py-20 px-4 max-w-6xl mx-auto relative z-10">
       {/* Header */}
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={fadeInUp}
-        className="text-center mb-12"
-      >
-        <h2
-          className="text-3xl font-bold text-white"
-          style={{ fontFamily: "'Outfit', 'Inter', sans-serif" }}
-        >
-          Technical <span className="gradient-text">Skills</span>
+      <div className="text-center max-w-2xl mx-auto mb-14">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-300 text-xs font-semibold tracking-wider uppercase mb-3">
+          <Layers size={13} />
+          <span>Technical Stack</span>
+        </div>
+        <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-['Space_Grotesk']">
+          Engineering & Research Toolkit
         </h2>
-        <p className="text-sm text-gray-400 mt-3 max-w-xl mx-auto">
-          A snapshot of the tools and technologies I work with, grouped by discipline.
+        <p className="text-slate-400 text-sm sm:text-base mt-2">
+          Technologies and tools utilized across empirical research experiments and scalable production environments.
         </p>
-      </motion.div>
+      </div>
 
-      {/* Category grid */}
+      {/* Categories Grid */}
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {skills.map((category, catIndex) => {
           const Icon = iconMap[category.icon] ?? Code2;
           return (
             <motion.div
               key={category.category}
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: catIndex * 0.08 }}
-              className="glass p-6 rounded-2xl relative overflow-hidden group"
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.45, delay: catIndex * 0.07, ease: ease.out }}
+              className="surface-card p-6 relative group"
             >
-              <div className="card-accent-bar" />
-
-              {/* Category title */}
-              <div className="flex items-center gap-3 mb-5">
-                <div
-                  className={`w-10 h-10 rounded-xl bg-gradient-to-br ${category.color} flex items-center justify-center text-white shrink-0`}
-                >
+              {/* Category Title */}
+              <div className="flex items-center gap-3 mb-5 pb-3 border-b border-white/[0.06]">
+                <div className="w-9 h-9 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-teal-300 shrink-0">
                   <Icon size={18} />
                 </div>
-                <h3
-                  className="text-base font-bold text-white"
-                  style={{ fontFamily: "'Outfit', 'Inter', sans-serif" }}
-                >
+                <h3 className="text-base font-bold text-white font-['Space_Grotesk']">
                   {category.category}
                 </h3>
               </div>
 
-              {/* Skill bars */}
-              <div className="space-y-4">
-                {category.items.map((skill, i) => (
-                  <div key={skill.name}>
-                    <div className="flex items-center justify-between mb-1.5">
-                      <span className="text-sm text-gray-300">{skill.name}</span>
-                      <span className="text-xs text-gray-500 font-medium">{skill.level}%</span>
-                    </div>
-                    <div className="h-1.5 rounded-full bg-white/10 overflow-hidden">
-                      <motion.div
-                        className={`h-full rounded-full bg-gradient-to-r ${category.color}`}
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.level}%` }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.9, delay: 0.1 + i * 0.06, ease: [0.22, 1, 0.36, 1] }}
-                      />
-                    </div>
+              {/* Skill Badges */}
+              <div className="flex flex-wrap gap-2">
+                {category.items.map((skill) => (
+                  <div
+                    key={skill.name}
+                    className="px-3 py-1.5 rounded-xl bg-white/[0.03] border border-white/[0.06] text-xs font-medium text-slate-200 hover:border-teal-400/40 hover:bg-teal-500/[0.05] transition-all"
+                  >
+                    <span>{skill.name}</span>
                   </div>
                 ))}
               </div>
