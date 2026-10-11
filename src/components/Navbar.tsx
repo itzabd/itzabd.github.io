@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, FileText, Sparkles } from "lucide-react";
+import { Menu, X, FileText } from "lucide-react";
 import { GithubIcon } from "@/components/icons";
 import { ease } from "@/lib/motion";
 
@@ -58,17 +58,12 @@ export default function Navbar() {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-indigo-600/30 border border-indigo-500/40 text-indigo-300 group-hover:border-indigo-400 transition-colors">
-                <Sparkles size={16} />
+              <div className="w-8 h-8 rounded-lg overflow-hidden border border-white/15 bg-black shrink-0 shadow-sm">
+                <img src="/icon.jpg" alt="Logo" className="w-full h-full object-cover" />
               </div>
-              <div className="flex flex-col">
-                <span className="font-bold text-sm tracking-tight text-white leading-none">
-                  Abdullah Hossien
-                </span>
-                <span className="text-[10px] text-slate-400 font-mono tracking-wider">
-                  AI/ML · Research
-                </span>
-              </div>
+              <span className="font-bold text-base tracking-tight text-white font-['Space_Grotesk']">
+                Abdullah Hossien
+              </span>
             </motion.a>
 
             {/* Desktop links */}

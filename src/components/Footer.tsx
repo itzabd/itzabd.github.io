@@ -16,10 +16,8 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-white/[0.06]">
           {/* Identity & Status */}
           <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 text-center sm:text-left">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 via-teal-400 to-amber-400 p-[1px] flex items-center justify-center shrink-0 shadow-md">
-              <div className="w-full h-full bg-[#080b12] rounded-[11px] flex items-center justify-center font-bold text-xs tracking-wider text-white font-['Space_Grotesk']">
-                AH
-              </div>
+            <div className="w-9 h-9 rounded-xl overflow-hidden border border-white/15 bg-black shrink-0 shadow-md">
+              <img src="/icon.jpg" alt="Logo" className="w-full h-full object-cover" />
             </div>
 
             <div>
