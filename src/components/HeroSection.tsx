@@ -5,12 +5,11 @@ import {
   FileText, 
   BookOpen, 
   GraduationCap, 
-  Users, 
-  Trophy, 
   ArrowDown, 
   Mail, 
   Sparkles,
-  ExternalLink 
+  Award,
+  Layers
 } from "lucide-react";
 import { GithubIcon, LinkedinIcon, InstagramIcon, ScholarIcon } from "@/components/icons";
 import { personalInfo, achievements } from "@/lib/data";
@@ -28,7 +27,7 @@ const containerVariants = {
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 18 },
+  hidden: { opacity: 0, y: 16 },
   visible: {
     opacity: 1,
     y: 0,
@@ -40,194 +39,251 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative min-h-[92vh] flex flex-col items-center justify-center text-center px-4 pt-28 pb-16 overflow-hidden dot-grid"
+      className="relative min-h-[92vh] flex items-center justify-center px-4 pt-28 pb-16 overflow-hidden dot-grid"
     >
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="relative z-10 max-w-4xl mx-auto w-full flex flex-col items-center"
+        className="relative z-10 max-w-6xl mx-auto w-full"
       >
-        {/* Availability Badge */}
-        <motion.div variants={itemVariants} className="mb-6">
-          <div className="availability-pill">
-            <span className="availability-dot" />
-            <span>Open for Master&apos;s Admissions (Fall 2026/Spring 2027) & ML Roles</span>
-          </div>
-        </motion.div>
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          {/* Left Column: Narrative, Positioning, Actions & Key Stats */}
+          <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left">
+            {/* Availability Pill */}
+            <motion.div variants={itemVariants} className="mb-4">
+              <div className="availability-pill">
+                <span className="availability-dot" />
+                <span>Open for Master&apos;s Admissions (Fall &apos;26/Spring &apos;27) & ML Roles</span>
+              </div>
+            </motion.div>
 
-        {/* Profile Image with Academic Glow */}
-        <motion.div variants={itemVariants} className="mb-6 relative">
-          <motion.div
-            className="relative"
-            whileHover={{ scale: 1.04 }}
-            transition={spring.subtle}
-          >
-            <div
-              className="absolute -inset-1.5 rounded-full opacity-40 blur-md"
-              style={{
-                background: "linear-gradient(135deg, var(--accent), var(--teal))",
-              }}
-            />
-            <div className="relative w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-white/20 bg-slate-900 shadow-2xl">
-              <img
-                src="/profile.jpg"
-                alt="Md Abdullah Hossien"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </motion.div>
-        </motion.div>
+            {/* Name */}
+            <motion.div variants={itemVariants} className="mb-3">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white font-['Space_Grotesk'] leading-[1.1]">
+                Hi, I&apos;m <span className="gradient-gold">Md. Abdullah Hossien</span>
+              </h1>
+            </motion.div>
 
-        {/* Aspirations Tag */}
-        <motion.div variants={itemVariants} className="mb-3">
-          <span className="badge-tag badge-academic text-xs">
-            <Sparkles size={12} className="inline mr-1" />
-            {personalInfo.targetAspiration}
-          </span>
-        </motion.div>
+            {/* Title & Affiliation */}
+            <motion.div variants={itemVariants} className="mb-5">
+              <p className="text-lg sm:text-xl font-medium text-slate-200">
+                AI/ML Researcher & Full-Stack Developer
+              </p>
+              <p className="text-xs sm:text-sm text-slate-400 mt-1 font-mono">
+                B.Sc. in Computer Science · Independent University, Bangladesh ·{" "}
+                <span className="text-amber-300 font-semibold">CGPA 3.64</span>
+              </p>
+            </motion.div>
 
-        {/* Name */}
-        <motion.div variants={itemVariants} className="mb-3">
-          <h1
-            className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white font-['Space_Grotesk']"
-          >
-            Md. Abdullah <span className="gradient-gold">Hossien</span>
-          </h1>
-        </motion.div>
+            {/* Bio Summary */}
+            <motion.div variants={itemVariants} className="mb-7 max-w-xl">
+              <p className="text-sm sm:text-base leading-relaxed text-slate-300/90">
+                Undergraduate Research Assistant & Teaching Assistant with{" "}
+                <strong className="text-white font-semibold">
+                  4 papers (2 Published at Springer LNCS & IEEE, 2 Accepted)
+                </strong>
+                . Investigating trustworthy ML for clinical healthcare & computer vision, while engineering scalable full-stack production platforms.
+              </p>
+            </motion.div>
 
-        {/* Primary Role & Institution */}
-        <motion.div variants={itemVariants} className="mb-5 max-w-2xl">
-          <p className="text-lg md:text-xl font-medium text-slate-300">
-            AI/ML Researcher & Full-Stack Developer
-          </p>
-          <p className="text-sm text-slate-400 mt-1 font-mono">
-            B.Sc. in Computer Science · Independent University, Bangladesh · <span className="text-amber-300 font-semibold">CGPA 3.64</span>
-          </p>
-        </motion.div>
-
-        {/* Concise High-Signal Bio */}
-        <motion.div variants={itemVariants} className="mb-8 max-w-2xl">
-          <p className="text-sm md:text-base leading-relaxed text-slate-300/90">
-            Undergraduate Research Assistant & Teaching Assistant with{" "}
-            <strong className="text-white font-semibold">4 papers (2 Published at Springer LNCS & IEEE, 2 Accepted)</strong>. 
-            Investigating trustworthy ML for clinical healthcare & neurotechnology while engineering scalable production platforms.
-          </p>
-        </motion.div>
-
-        {/* Primary Action Buttons */}
-        <motion.div variants={itemVariants} className="flex flex-wrap gap-3 justify-center mb-10">
-          <motion.a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary"
-            whileTap={{ scale: 0.98 }}
-          >
-            <FileText size={16} />
-            <span>Download Curriculum Vitae</span>
-          </motion.a>
-
-          <motion.a
-            href="#research"
-            className="btn-secondary"
-            whileTap={{ scale: 0.98 }}
-          >
-            <BookOpen size={16} className="text-amber-400" />
-            <span>View Publications ({achievements[0].value})</span>
-          </motion.a>
-
-          <motion.a
-            href="#journey"
-            className="btn-secondary"
-            whileTap={{ scale: 0.98 }}
-          >
-            <span>The Journey</span>
-          </motion.a>
-
-          <motion.a
-            href={personalInfo.scholar}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-secondary !px-3"
-            aria-label="Google Scholar"
-            title="Google Scholar Profile"
-            whileTap={{ scale: 0.98 }}
-          >
-            <ScholarIcon size={16} className="text-amber-400" />
-          </motion.a>
-
-          <motion.a
-            href={personalInfo.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-secondary !px-3"
-            aria-label="GitHub"
-            title="GitHub Profile"
-            whileTap={{ scale: 0.98 }}
-          >
-            <GithubIcon size={16} />
-          </motion.a>
-
-          <motion.a
-            href={personalInfo.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-secondary !px-3"
-            aria-label="LinkedIn"
-            title="LinkedIn Profile"
-            whileTap={{ scale: 0.98 }}
-          >
-            <LinkedinIcon size={16} />
-          </motion.a>
-
-          <motion.a
-            href={personalInfo.instagram}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-secondary !px-3"
-            aria-label="Instagram"
-            title="Instagram Profile"
-            whileTap={{ scale: 0.98 }}
-          >
-            <InstagramIcon size={16} />
-          </motion.a>
-
-          <motion.a
-            href="#contact"
-            className="btn-secondary !px-3"
-            aria-label="Email"
-            title="Contact / Email"
-            whileTap={{ scale: 0.98 }}
-          >
-            <Mail size={16} />
-          </motion.a>
-        </motion.div>
-
-        {/* Metric Cards (Academic & Engineering Signals) */}
-        <motion.div
-          variants={itemVariants}
-          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 w-full max-w-4xl"
-        >
-          {achievements.map((item) => (
-            <div
-              key={item.label}
-              className="surface-card p-3.5 flex flex-col items-center justify-center text-center group"
+            {/* Action Buttons & Socials */}
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-9"
             >
-              <span className="text-xl md:text-2xl font-bold font-['JetBrains_Mono'] text-white group-hover:text-amber-300 transition-colors">
-                {item.value}
-              </span>
-              <span className="text-[11px] font-medium text-slate-400 mt-1 leading-snug">
-                {item.label}
-              </span>
-            </div>
-          ))}
-        </motion.div>
+              <motion.a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary"
+                whileTap={{ scale: 0.98 }}
+              >
+                <FileText size={16} />
+                <span>Download CV</span>
+              </motion.a>
+
+              <motion.a
+                href="#research"
+                className="btn-secondary"
+                whileTap={{ scale: 0.98 }}
+              >
+                <BookOpen size={16} className="text-amber-400" />
+                <span>Publications (4)</span>
+              </motion.a>
+
+              <motion.a
+                href="#journey"
+                className="btn-secondary hidden sm:inline-flex"
+                whileTap={{ scale: 0.98 }}
+              >
+                <span>The Journey</span>
+              </motion.a>
+
+              {/* Grouped Social Icons */}
+              <div className="flex items-center gap-1.5 p-1 rounded-xl bg-white/[0.03] border border-white/[0.08]">
+                <a
+                  href={personalInfo.scholar}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 rounded-lg flex items-center justify-center text-slate-300 hover:text-amber-400 hover:bg-white/[0.06] transition-colors"
+                  aria-label="Google Scholar"
+                  title="Google Scholar Profile"
+                >
+                  <ScholarIcon size={16} />
+                </a>
+
+                <a
+                  href={personalInfo.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 rounded-lg flex items-center justify-center text-slate-300 hover:text-white hover:bg-white/[0.06] transition-colors"
+                  aria-label="GitHub"
+                  title="GitHub Profile"
+                >
+                  <GithubIcon size={16} />
+                </a>
+
+                <a
+                  href={personalInfo.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 rounded-lg flex items-center justify-center text-slate-300 hover:text-white hover:bg-white/[0.06] transition-colors"
+                  aria-label="LinkedIn"
+                  title="LinkedIn Profile"
+                >
+                  <LinkedinIcon size={16} />
+                </a>
+
+                <a
+                  href={personalInfo.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 rounded-lg flex items-center justify-center text-slate-300 hover:text-pink-400 hover:bg-white/[0.06] transition-colors"
+                  aria-label="Instagram"
+                  title="Instagram Profile"
+                >
+                  <InstagramIcon size={16} />
+                </a>
+
+                <a
+                  href={`mailto:${personalInfo.email}`}
+                  className="w-9 h-9 rounded-lg flex items-center justify-center text-slate-300 hover:text-white hover:bg-white/[0.06] transition-colors"
+                  aria-label="Email"
+                  title="Direct Email"
+                >
+                  <Mail size={16} />
+                </a>
+              </div>
+            </motion.div>
+
+            {/* Quick High-Signal Stats Row */}
+            <motion.div
+              variants={itemVariants}
+              className="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full max-w-xl pt-5 border-t border-white/[0.08]"
+            >
+              <div className="surface-card !p-3 text-center lg:text-left">
+                <span className="text-xl lg:text-2xl font-bold font-['JetBrains_Mono'] text-white block">
+                  4
+                </span>
+                <span className="text-[11px] font-medium text-slate-400 leading-tight">
+                  Papers (2 Pub, 2 Acc)
+                </span>
+              </div>
+
+              <div className="surface-card !p-3 text-center lg:text-left">
+                <span className="text-xl lg:text-2xl font-bold font-['JetBrains_Mono'] text-amber-300 block">
+                  3.64
+                </span>
+                <span className="text-[11px] font-medium text-slate-400 leading-tight">
+                  CGPA (Dean&apos;s List)
+                </span>
+              </div>
+
+              <div className="surface-card !p-3 text-center lg:text-left">
+                <span className="text-xl lg:text-2xl font-bold font-['JetBrains_Mono'] text-teal-300 block">
+                  100+
+                </span>
+                <span className="text-[11px] font-medium text-slate-400 leading-tight">
+                  Students Taught (TA)
+                </span>
+              </div>
+
+              <div className="surface-card !p-3 text-center lg:text-left">
+                <span className="text-xl lg:text-2xl font-bold font-['JetBrains_Mono'] text-purple-300 block">
+                  FIDE
+                </span>
+                <span className="text-[11px] font-medium text-slate-400 leading-tight">
+                  Rated Chess Player
+                </span>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Right Column: Academic Portrait Card */}
+          <motion.div
+            variants={itemVariants}
+            className="lg:col-span-5 flex justify-center"
+          >
+            <motion.div
+              whileHover={{ y: -6 }}
+              transition={spring.subtle}
+              className="relative max-w-sm w-full"
+            >
+              {/* Backlight Ambient Glow */}
+              <div
+                className="absolute -inset-3 rounded-3xl opacity-30 blur-2xl pointer-events-none"
+                style={{
+                  background: "linear-gradient(135deg, var(--accent), var(--teal), var(--amber))",
+                }}
+              />
+
+              {/* Main Portrait Card */}
+              <div className="relative rounded-3xl p-3 surface-card border border-white/15 bg-gradient-to-b from-white/[0.05] to-black/60 shadow-2xl overflow-hidden">
+                <div className="aspect-[4/5] w-full rounded-2xl overflow-hidden bg-slate-900 relative">
+                  <img
+                    src="/profile.jpg"
+                    alt="Md. Abdullah Hossien"
+                    className="w-full h-full object-cover object-top"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
+
+                  {/* Overlaid Badges on Image */}
+                  <div className="absolute bottom-3 left-3 right-3 flex flex-col gap-2">
+                    <div className="p-2.5 rounded-xl bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <GraduationCap size={16} className="text-amber-400 shrink-0" />
+                        <div>
+                          <p className="text-xs font-bold text-white font-['Space_Grotesk'] leading-tight">
+                            Independent University, Bangladesh
+                          </p>
+                          <p className="text-[10px] font-mono text-teal-300">
+                            Faculty Research Assistant & TA
+                          </p>
+                        </div>
+                      </div>
+                      <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                        2022–2026
+                      </span>
+                    </div>
+
+                    <div className="p-2.5 rounded-xl bg-black/60 backdrop-blur-md border border-white/10 flex items-center gap-2 text-slate-300 text-xs">
+                      <Sparkles size={14} className="text-teal-400 shrink-0" />
+                      <span className="text-[11px] leading-tight">
+                        Springer LNCS · IEEE · CCE & ICSIE 2026
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
 
         {/* Scroll Hint */}
         <motion.div
           variants={itemVariants}
-          className="mt-12 flex flex-col items-center gap-2 text-slate-500 text-xs font-mono"
+          className="mt-14 flex flex-col items-center gap-2 text-slate-500 text-xs font-mono"
         >
           <span>EXPLORE THE JOURNEY</span>
           <motion.div
