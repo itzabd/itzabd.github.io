@@ -8,7 +8,8 @@ import { ease } from "@/lib/motion";
 
 const navLinks = [
   { href: "#about", label: "About" },
-  { href: "#journey", label: "The Journey" },
+  { href: "#journey", label: "Journey" },
+  { href: "#certificates", label: "Certificates" },
   { href: "#research", label: "Research" },
   { href: "#projects", label: "Projects" },
   { href: "#experience", label: "Experience" },

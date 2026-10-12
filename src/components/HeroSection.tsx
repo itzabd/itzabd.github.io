@@ -189,7 +189,7 @@ export default function HeroSection() {
                   4
                 </span>
                 <span className="text-[11px] font-medium text-slate-400 leading-tight">
-                  Papers (2 Pub, 2 Acc)
+                  Papers (Pub & Presented)
                 </span>
               </div>
 

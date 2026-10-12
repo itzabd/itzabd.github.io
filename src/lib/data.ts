@@ -249,8 +249,8 @@ export const publications = [
     doi: null,
     doiUrl: null,
     year: "2026",
-    status: "Accepted & In Press",
-    statusColor: "text-yellow-300 bg-yellow-500/20 border-yellow-500/30",
+    status: "Presented",
+    statusColor: "text-emerald-300 bg-emerald-500/20 border-emerald-500/30",
     icon: "Cpu",
     abstract:
       "Co-designed a low-cost ($70) AI-powered Braille tutoring robot for visually impaired learners. Integrated voice and touch feedback for self-paced learning in resource-limited settings. Contributed to system design and evaluation of the assistive learning workflow.",
@@ -360,7 +360,7 @@ export const researchAreas = [
     year: "2025–2026",
     title: "AI-Powered Braille Tutoring Robot",
     description:
-      "Designed a low-cost ($70) AI-powered Braille tutoring robot for accessibility education, currently under review at CCE 2026 (Phase-1 Accepted).",
+      "Designed a low-cost ($70) AI-powered Braille tutoring robot for accessibility education, successfully presented at IEEE CCE 2026 (Mexico City).",
     tags: ["Robotics", "Assistive Tech", "AI", "Education"],
     icon: "Cpu",
     color: "text-cyan-400",
@@ -386,7 +386,7 @@ export const researchAreas = [
 ];
 
 export const achievements = [
-  { value: "4", label: "Papers (2 Pub, 2 Accepted)", icon: "BookOpen", color: "text-blue-400" },
+  { value: "4", label: "Papers (Pub & Presented)", icon: "BookOpen", color: "text-blue-400" },
   { value: "3.64", label: "CGPA", icon: "GraduationCap", color: "text-green-400" },
   { value: "4+", label: "Featured Projects", icon: "FolderGit2", color: "text-purple-400" },
   { value: "FIDE", label: "Chess Rating", icon: "Trophy", color: "text-yellow-400" },
@@ -445,13 +445,13 @@ export const journeyMilestones = [
     period: "2024 – 2026",
     badge: "Scholarly Milestones",
     title: "AI Research & Peer-Reviewed Publications",
-    tagline: "Research Assistantship → 2 Published (Springer & IEEE) + 2 Accepted",
+    tagline: "Research Assistantship → 2 Published (Springer & IEEE) + 1 Presented + 1 Accepted",
     description:
-      "Appointed faculty Research Assistant at IUB, conducting data preprocessing, statistical validation, and model design for clinical intelligence. Authored published research on liver data governance at HCII 2026 (Springer LNCS) and fetal health classification at IEEE ICMLAS 2026. Designed an affordable ($70) AI Braille tutoring robot (CCE 2026) and a road defect detection benchmark (ICSIE 2026).",
+      "Appointed faculty Research Assistant at IUB, conducting data preprocessing, statistical validation, and model design for clinical intelligence. Authored published research on liver data governance at HCII 2026 (Springer LNCS) and fetal health classification at IEEE ICMLAS 2026. Designed an affordable ($70) AI Braille tutoring robot presented at IEEE CCE 2026 and a road defect detection benchmark accepted at ICSIE 2026.",
     highlights: [
       "HCII 2026, Springer LNCS 16747 (Published)",
       "ICMLAS 2026, IEEE (Published)",
-      "CCE 2026 ($70 Braille Tutoring Robot Accepted)",
+      "CCE 2026 ($70 Braille Tutoring Robot Presented)",
       "ICSIE 2026 (YOLO Road Detection Accepted)",
     ],
     category: "Research",
@@ -504,16 +504,6 @@ export interface ReferenceItem {
 
 export const references: ReferenceItem[] = [
   {
-    name: "Mohammad Shidujaman, PhD",
-    role: "Assistant Professor",
-    department: "Dept. of Computer Science & Engineering",
-    school: "School of Engineering, Technology and Sciences",
-    institution: "Independent University, Bangladesh",
-    email: "shidujaman@iub.edu.bd",
-    type: "academic",
-    badge: "Academic & Research Advisor",
-  },
-  {
     name: "Md Tarek Habib, PhD",
     role: "Associate Professor",
     department: "Dept. of Computer Science & Engineering",
@@ -521,7 +511,17 @@ export const references: ReferenceItem[] = [
     institution: "Independent University, Bangladesh",
     email: "tarek@iub.edu.bd",
     type: "academic",
-    badge: "Academic Advisor",
+    badge: "Senior Faculty Supervisor",
+  },
+  {
+    name: "Mohammad Shidujaman, PhD",
+    role: "Assistant Professor",
+    department: "Dept. of Computer Science & Engineering",
+    school: "School of Engineering, Technology and Sciences",
+    institution: "Independent University, Bangladesh",
+    email: "shidujaman@iub.edu.bd",
+    type: "academic",
+    badge: "Faculty Research Supervisor",
   },
   {
     name: "Md Abu Sayed",
@@ -531,7 +531,7 @@ export const references: ReferenceItem[] = [
     institution: "Independent University, Bangladesh",
     email: "asayed@iub.edu.bd",
     type: "academic",
-    badge: "Faculty Reference",
+    badge: "Faculty Supervisor",
   },
   {
     name: "Md. Monwar Hossain (Nibir)",
@@ -547,4 +547,117 @@ export const references: ReferenceItem[] = [
 ];
 
 export const academicReferences = references;
+
+export interface CertificateItem {
+  id: string;
+  title: string;
+  category: "Academic" | "Conference" | "Leadership" | "Volunteering";
+  issuer: string;
+  date: string;
+  image: string;
+  description: string;
+  badge: string;
+  badgeColor: string;
+}
+
+export const certificates: CertificateItem[] = [
+  {
+    id: "deans-recognition-autumn-2024",
+    title: "Certificate of Merit — Dean's List (Autumn 2024)",
+    category: "Academic",
+    issuer: "Independent University, Bangladesh (IUB)",
+    date: "Autumn 2024 · CGPA 3.58",
+    image: "/certificates/deans-list-autumn-2024.png",
+    description:
+      "Awarded by the Vice Chancellor for achieving academic distinction with a CGPA of 3.58 in the B.Sc. in Computer Science program and placement on the prestigious Dean's List.",
+    badge: "Dean's List Merit",
+    badgeColor: "bg-amber-500/10 text-amber-300 border-amber-500/30",
+  },
+  {
+    id: "deans-recognition-spring-2022",
+    title: "Certificate of Merit — Dean's List (Spring 2022)",
+    category: "Academic",
+    issuer: "Independent University, Bangladesh (IUB)",
+    date: "Spring 2022 · CGPA 3.63",
+    image: "/certificates/deans-list-spring-2022.png",
+    description:
+      "Awarded by Vice Chancellor Prof. Tanweer Hasan for achieving academic distinction with a CGPA of 3.63 in Computer Science, securing placement on the Dean's Honor List.",
+    badge: "Dean's List Merit",
+    badgeColor: "bg-amber-500/10 text-amber-300 border-amber-500/30",
+  },
+  {
+    id: "cce-2026-presentation",
+    title: "Presentation Recognition — IEEE CCE 2026",
+    category: "Conference",
+    issuer: "Cinvestav & CCE Organizing Committee · Mexico City",
+    date: "September 9–11, 2026",
+    image: "/certificates/cce-2026-presentation.png",
+    description:
+      "Awarded by General Chair Dr. Giselle M. Galván-Tejada for presenting the peer-reviewed paper: 'Braille for All: A 70 USD AI-Powered Braille Tutoring Robot That Erases the Literacy Gap with a Touch and a Voice' at the 23rd CCE conference.",
+    badge: "IEEE CCE Presentation",
+    badgeColor: "bg-teal-500/10 text-teal-300 border-teal-500/30",
+  },
+  {
+    id: "icmlas-2026-presentation",
+    title: "Certificate of Presentation — IEEE ICMLAS 2026",
+    category: "Conference",
+    issuer: "IEEE & Stamford International University · Bangkok, Thailand",
+    date: "March 11–13, 2026",
+    image: "/certificates/icmlas-2026-presentation.png",
+    description:
+      "Awarded for presenting the paper: 'Safety-Enhanced Machine Learning for Fetal Health Classification Using Cardiotocography Data' at the 3rd International Conference on Machine Learning and Autonomous Systems.",
+    badge: "IEEE ICMLAS Presentation",
+    badgeColor: "bg-blue-500/10 text-blue-300 border-blue-500/30",
+  },
+  {
+    id: "hci-2026-presentation",
+    title: "Certificate of Presentation — HCI International 2026",
+    category: "Conference",
+    issuer: "HCI International 2026 · Montreal, Canada",
+    date: "July 26–31, 2026",
+    image: "/certificates/hci-2026-presentation.png",
+    description:
+      "Certified by General Chair Prof. Constantine Stephanidis for presenting research on 'Understanding Challenges of Liver Data Governance for Providing Mobile App-Based Liver Care Services in Developing Countries Like Bangladesh' (Springer LNCS).",
+    badge: "HCII Presentation",
+    badgeColor: "bg-purple-500/10 text-purple-300 border-purple-500/30",
+  },
+  {
+    id: "pitch-perfect-mentoring",
+    title: "Certificate of Participation — 'Pitch Perfect' Startup Mentoring",
+    category: "Leadership",
+    issuer: "IUB360 Center of Innovation & Incubation",
+    date: "Innovation & Incubation Session",
+    image: "/certificates/pitch-perfect-mentoring.png",
+    description:
+      "Presented by Bimafy Founder & CEO Md. Alvi Nizam Nafi and Director of IUB360 Dr. Md Tarek Habib for successful participation in the 'Pitch Perfect' Startup Mentoring Session.",
+    badge: "Startup Mentoring",
+    badgeColor: "bg-orange-500/10 text-orange-300 border-orange-500/30",
+  },
+  {
+    id: "event-coordinator",
+    title: "Certificate of Recognition — Event Coordinator",
+    category: "Leadership",
+    issuer: "IUB Chess Club · Independent University, Bangladesh",
+    date: "July Memorial FIDE Chess Championship IUB 2025",
+    image: "/certificates/event-coordinator.png",
+    description:
+      "Awarded for dedication and vital leadership as club Event Coordinator in organizing the July Memorial FIDE Chess Championship under international competitive standards.",
+    badge: "Event Coordinator",
+    badgeColor: "bg-rose-500/10 text-rose-300 border-rose-500/30",
+  },
+  {
+    id: "volunteer-service",
+    title: "Certificate of Appreciation — Volunteer Service",
+    category: "Volunteering",
+    issuer: "Division of Student Activities (DOSA) & IUB Chess Club",
+    date: "March 30, 2023 · Independence Day Tournament",
+    image: "/certificates/volunteer-service.png",
+    description:
+      "Awarded by DOSA Head Atif M Safi and Grandmaster Niaz Murshed in gratitude for volunteering in the Independence Day Intra-IUB Chess Tournament.",
+    badge: "Volunteer Service",
+    badgeColor: "bg-emerald-500/10 text-emerald-300 border-emerald-500/30",
+  },
+];
+
+
 

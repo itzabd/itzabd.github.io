@@ -85,16 +85,16 @@ export default function EducationSection() {
         ))}
       </div>
 
-      {/* Academic & Professional References */}
+      {/* Faculty Supervisors & Professional References */}
       <div className="mt-16 pt-10 border-t border-white/[0.08]">
         <div className="flex items-center gap-2 mb-2">
           <Users size={16} className="text-teal-400" />
           <h3 className="text-xl font-bold text-white font-['Space_Grotesk']">
-            Academic & Professional References
+            Faculty Supervisors & Professional References
           </h3>
         </div>
         <p className="text-xs sm:text-sm text-slate-400 mb-6">
-          Faculty mentors and senior engineering leaders who oversee and vouch for my research rigor and software architecture capabilities.
+          Faculty supervisors and senior engineering leaders who oversee my academic and research work and vouch for my software architecture capabilities.
         </p>
 
         <div className="grid sm:grid-cols-2 gap-4">

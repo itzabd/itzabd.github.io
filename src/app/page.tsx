@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import JourneySection from "@/components/JourneySection";
+import CertificatesSection from "@/components/CertificatesSection";
 import ResearchSection from "@/components/ResearchSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import ExperienceSection from "@/components/ExperienceSection";
@@ -21,6 +22,7 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
       <JourneySection />
+      <CertificatesSection />
       <ResearchSection />
       <ProjectsSection />
       <ExperienceSection />
