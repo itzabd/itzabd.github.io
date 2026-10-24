@@ -245,7 +245,7 @@ export const publications = [
     venue: "CCE 2026, IEEE, Mexico City",
     publisher: "IEEE",
     authors: "Md Abdullah Hossien Molla et al.",
-    authorship: "Co-Author",
+    authorship: "First Author",
     doi: null,
     doiUrl: null,
     year: "2026",
@@ -253,7 +253,7 @@ export const publications = [
     statusColor: "text-emerald-300 bg-emerald-500/20 border-emerald-500/30",
     icon: "Cpu",
     abstract:
-      "Co-designed a low-cost ($70) AI-powered Braille tutoring robot for visually impaired learners. Integrated voice and touch feedback for self-paced learning in resource-limited settings. Contributed to system design and evaluation of the assistive learning workflow.",
+      "Designed a low-cost ($70) AI-powered Braille tutoring robot for visually impaired learners. Integrated voice and touch feedback for self-paced learning in resource-limited settings. Led system design and evaluation of the assistive learning workflow.",
     tags: ["Robotics", "Assistive Tech", "AI Education", "Braille", "IEEE"],
   },
   {

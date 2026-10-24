@@ -42,7 +42,7 @@ export default function ResearchSection() {
           Research & Peer-Reviewed Publications
         </h2>
         <p className="text-slate-400 text-sm sm:text-base mt-3 leading-relaxed">
-          Author of 4 peer-reviewed publications (including 2 as First Author) spanning object detection benchmarks, clinical safety ML, and assistive robotics.
+          Author of {publications.length} peer-reviewed publications (including {publications.filter(p => p.authorship === "First Author").length} as First Author) spanning object detection benchmarks, clinical safety ML, and assistive robotics.
         </p>
 
         {/* Google Scholar Link */}
